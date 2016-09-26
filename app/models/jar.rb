@@ -1,0 +1,2 @@
+class Jar < ApplicationRecord
+end
