@@ -1,0 +1,2 @@
+class JarsController < ApplicationController
+end
