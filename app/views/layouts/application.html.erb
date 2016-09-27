@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <div id="nav">
+      <% if current_user %>
+        <%= link_to 'Edit Profile', edit_users_path(current_user.id)  %>
+        <%= link_to 'Log Out', :logout, method: :post %>
+      <% else %>
+        <%= link_to 'Register', new_users_path %>
+        <%= link_to 'Log In', :login %>
+      <% end %>
+    </div>
+    <div class="alerts">
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+    </div>
     <%= yield %>
   </body>
 </html>
