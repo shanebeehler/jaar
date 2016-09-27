@@ -1,3 +1,6 @@
 class Item < ApplicationRecord
-   has_attached_file :image
+  belongs_to :jar
+  belongs_to :type
+  has_attached_file :image
+
 end

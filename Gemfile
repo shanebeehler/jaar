@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Paperclip for file uploads.
 gem "paperclip", "~> 5.0.0"
 
+gem 'sorcery'
+gem 'figaro'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
