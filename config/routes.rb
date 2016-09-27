@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'user_sessions#new'
+  root 'users#show'
   resource :users
-  resources :user_sessions
-  resources :password_resets
+  resources :user_sessions, only: [:new, :create, :destroy]
+  resources :password_resets, only: [:create, :edit, :update]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout

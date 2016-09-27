@@ -6,7 +6,7 @@ skip_before_action :require_login
 
     @user.deliver_reset_password_instructions! if @user
 
-    redirect_to(root_path, :notice => 'Instructions have been sent to your email.')
+    redirect_to(new_user_session_path, :notice => 'Instructions have been sent to your email.')
   end
 
   def edit
