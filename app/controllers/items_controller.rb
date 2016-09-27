@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
-  # before_action do
-  #   @jar = Jar.find(params[:jar_id])
-  # end
+  before_action do
+    @jar = Jar.find(params[:jar_id])
+  end
 
   def index
     @items = @jar.items
@@ -56,10 +56,6 @@ class ItemsController < ApplicationController
       not_found
     end
   end
-
-  # def item_params
-  #   params.require(:item).permit(:type_id, :type_data, :comment)
-  # end
 
   def item_params
     case params[:item][:type_id]
