@@ -1,8 +1,7 @@
 class ItemsController < ApplicationController
-
-  before_action do
-    @jar = Jar.find(params[:jar_id])
-  end
+  # before_action do
+  #   @jar = Jar.find(params[:jar_id])
+  # end
 
   def index
     @items = @jar.items
@@ -22,7 +21,8 @@ class ItemsController < ApplicationController
     @item.jar = @jar
 
     if @item.save
-      redirect_to [@jar, @item]
+      # redirect_to [@jar, @item]
+      redirect_to users_path
     else
       render new_jar_user_path
     end
@@ -52,12 +52,22 @@ class ItemsController < ApplicationController
   private
 
   def ensure_jar_match
-  if @item.jar != @jar
-    not_found
+    if @item.jar != @jar
+      not_found
+    end
   end
 
+  # def item_params
+  #   params.require(:item).permit(:type_id, :type_data, :comment)
+  # end
+
   def item_params
-    params.require(:item).permit(:comment)
+    case params[:item][:type_id]
+    when "1" #If user selects 'text'
+      params.require(:item).permit(:type_id, :comment)
+    when "2" #If user selects 'image'
+      params.require(:item).permit(:type_id, :type_data, :comment)
+    end
   end
 
 end
