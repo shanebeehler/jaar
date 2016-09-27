@@ -31,6 +31,7 @@ class PasswordResetsController < ApplicationController
     @user.password_confirmation = params[:user][:password_confirmation]
 
     if @user.change_password!(params[:user][:password])
+      auto_login(@user)
       redirect_to(root_path, :notice => 'Password updated successfully')
     else
       render :edit
