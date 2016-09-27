@@ -10,6 +10,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       auto_login(@user)
+      @user.generate_general_jar(@user)
       redirect_to :root
     else
       render :new
@@ -21,5 +22,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
+
+
 
 end
