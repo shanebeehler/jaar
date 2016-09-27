@@ -1,11 +1,16 @@
 class ItemsController < ApplicationController
 
+  before_action do
+    @jar = Jar.find(params[:jar_id])
+  end
+
   def index
-    @items = Item.all
+    @items = @jar.items
   end
 
   def show
     @item = Item.find(params[:id])
+    ensure_jar_match
   end
 
   def new
@@ -14,11 +19,12 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.jar = @jar
 
-    if Item.save
-      redirect_to items_path
+    if @item.save
+      redirect_to [@jar, @item]
     else
-      render 'new'
+      render new_jar_user_path
     end
   end
 
@@ -29,10 +35,10 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
 
-    if @item.update_attributes(item_params)
-      redirect_to items_path
+    if @item.update(item_params)
+      redirect_to [@jar, @item]
     else
-      render 'edit'
+      render edit_jar_item_path
     end
   end
 
@@ -40,7 +46,18 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
 
-    redirect_to items_path
+    redirect_to jar_items_path
+  end
+
+  private
+
+  def ensure_jar_match
+  if @item.jar != @jar
+    not_found
+  end
+
+  def item_params
+    params.require(:item).permit(:comment)
   end
 
 end
