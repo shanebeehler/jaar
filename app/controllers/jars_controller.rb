@@ -1,7 +1,10 @@
 class JarsController < ApplicationController
+  before_action do
+    @user = current_user
+  end
 
   def index
-    @jars = Jars.all
+    @jars = @user.jars
   end
 
   def show
@@ -15,6 +18,7 @@ class JarsController < ApplicationController
 
   def create
     @jar = Jar.new(jar_params)
+    @jar.user_id = @user.id
 
     if @jar.save
       redirect_to jars_path
@@ -46,8 +50,9 @@ class JarsController < ApplicationController
   private
 
   def ensure_user_match
-  if @jar.user != @user
-    not_found
+    if @jar.user != @user
+      not_found
+    end
   end
 
   def jar_params
