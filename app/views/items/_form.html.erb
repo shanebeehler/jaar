@@ -1,0 +1,19 @@
+<% form_for @item do |f| %>
+<div class="field">
+  <%= f.label :type_id %>
+  <%= f.select(:type_id) do %>
+    <% [['Please select an option', 0], ['text', 1], ['image', 2]].each do |type| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="text-field">
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+</div>
+<div class="image-field">
+  <%= f.label :image %>
+  <%= f.text_field :image PAPERCLIP %>
+</div>
+<% end %>
