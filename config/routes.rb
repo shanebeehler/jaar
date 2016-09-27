@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :jars
-  resources :items
+  resources :jars do
+    resources :items  
+  end
 
   resource :users
   root 'jars#index'
