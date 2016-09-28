@@ -1,5 +1,7 @@
 <% @jars.each do |jar| %>
   <%= jar.name %>
+  <h3><%= link_to "#{jar.name}", jar_path(jar) %></h3>
+
   <%= jar.user.first_name %>
 <% end %>
 
