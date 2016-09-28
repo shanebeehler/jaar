@@ -1,10 +1,11 @@
 <% @jars.each do |jar| %>
-  <%= jar.name %>
-  <%= jar.user.first_name %>
+
+  <h3><%= link_to "#{jar.name}", jar_path(jar) %></h3>
+
 <% end %>
 
 <div class="nav-button">
-  <%= link_to 'New Jaar', new_jar_path %>
+  <%= link_to 'Create a New Jaar', new_jar_path %>
 </div>
 
 

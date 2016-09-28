@@ -1,11 +1,3 @@
 <h1>New Jaar</h1>
 
-<%= form_for @jar do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= render 'form' %>
