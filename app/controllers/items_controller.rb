@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
 
     if @item.save
       # redirect_to [@jar, @item]
-      redirect_to users_path
+      redirect_to jar_path(@jar)
     else
       render new_jar_user_path
     end
