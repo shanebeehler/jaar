@@ -47,6 +47,16 @@ class JarsController < ApplicationController
     redirect_to jars_path
   end
 
+  def close_jar
+    @jar = Jar.find(params[:id])
+    @jar.closed = true
+    if @jar.save
+      redirect_to jars_path, notice: "Jar has been closed!"
+    else
+      render show_jar_path(@jar)
+    end
+  end
+
   private
 
   def ensure_user_match

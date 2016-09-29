@@ -1,9 +1,29 @@
-<% @jars.each do |jar| %>
-
-  <h3><%= link_to "#{jar.name}", jar_path(jar) %></h3>
-
-<% end %>
-
 <div class="nav-button">
   <%= link_to 'Create a New Jaar', new_jar_path %>
 </div>
+
+
+/<div class="feed"></div>
+
+  <div class="container">
+    <div class="nav-bar">
+      <h1>Jaar</h1>
+      <ul class="nav-list">
+      </ul>
+  </div>
+
+      <div class="collection">
+
+          <div class="shelf">
+              <%= render partial: 'jars', object: @jars[0..3] %>
+           </div>
+
+          <div class="shelf">
+          </div>
+
+          <div class="shelf"></div>
+
+          <div class="shelf"></div>
+      </div>
+    </div>
+<button>hello</button>
