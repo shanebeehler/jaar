@@ -14,6 +14,10 @@ class JarsController < ApplicationController
 
   def new
     @jar = Jar.new
+
+    if request.xhr?
+      render :layout => false  
+    end
   end
 
   def create

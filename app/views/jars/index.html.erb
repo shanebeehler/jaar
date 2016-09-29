@@ -1,5 +1,5 @@
 <div class="nav-button">
-  <%= link_to 'Create a New Jaar', new_jar_path %>
+  <%= link_to 'Create a New Jaar', new_jar_path, id: 'new-jar' %>
 </div>
 
 
@@ -26,4 +26,8 @@
           <div class="shelf"></div>
       </div>
     </div>
-<button>hello</button>
+<div class='modal' id='new-jar-modal'>
+  <div class='modal-content'>
+      <%= render 'form', jar: Jar.new %>
+  </div>
+</div>
