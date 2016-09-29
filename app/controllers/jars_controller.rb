@@ -10,13 +10,23 @@ class JarsController < ApplicationController
   def show
     @jar = Jar.find(params[:id])
     ensure_user_match
+
+    respond_to do |f|
+      f.html
+      f.json do
+        media_url = @jar.items.map do |item|
+          item.type_data.url
+        end
+        render json: [@jar, @jar.items]
+      end
+    end
   end
 
   def new
     @jar = Jar.new
 
     if request.xhr?
-      render :layout => false  
+      render :layout => false
     end
   end
 
@@ -68,6 +78,20 @@ class JarsController < ApplicationController
       not_found
     end
   end
+
+  # def get_random_item(jar)
+  #   if jar.items.count == 0
+  #     return false
+  #   else
+  #     random_item = jar.items.sample
+  #     case random_item.type_id
+  #     when 1
+  #       random_item.comment
+  #     when 2
+  #       random_item.type_data.url
+  #     end
+  #   end
+  # end
 
   def jar_params
     params.require(:jar).permit(:name)
