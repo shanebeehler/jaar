@@ -1,0 +1,35 @@
+<h1><%= @jar.name %> Jaar <h1>
+
+  <%= link_to "GIMMIE SOMETHIN ELSE FOO", jar_path(@jar) %>
+
+
+<div>
+  <% if @jar.items.count == 0 %>
+    <p>
+      Your jar is empty. Go ahead and add something!
+    </p>
+  <% else %>
+  <% random_item = @jar.items.sample %>
+    <% case random_item.type_id  %>
+      <% when 1 %>
+      <p><%= random_item.comment %></p>
+      <% when 2 %>
+      <%= image_tag random_item.type_data.url %>
+      <p><%= random_item.comment %></p>
+    <% end %>
+  <% end %>
+</div>
+
+<% if @jar.closed %>
+  <p>
+    This jar is closed
+  </p>
+<% else %>
+  <h3><%= link_to 'New Item', new_jar_item_path(@jar) %></h3>
+
+  <%= button_to 'Close Jar', action: 'close_jar'  %>
+
+  <%= link_to 'Edit Jaar', edit_jar_path %>
+<% end %>
+
+<h2><%= link_to 'All Jaars', jars_path(@location) %></h2>

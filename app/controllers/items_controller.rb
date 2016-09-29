@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   before_action do
     @jar = Jar.find(params[:jar_id])
   end
@@ -18,11 +17,18 @@ class ItemsController < ApplicationController
   end
 
   def create
+
+    if params[:item][:type_id] == '0'
+      flash[:notice] = "Please select the type of item you'd like to add"
+      redirect_to new_jar_item_path and return
+    end
+
     @item = Item.new(item_params)
     @item.jar = @jar
 
     if @item.save
-      redirect_to [@jar, @item]
+      # redirect_to [@jar, @item]
+      redirect_to jar_path(@jar)
     else
       render new_jar_user_path
     end
@@ -52,12 +58,18 @@ class ItemsController < ApplicationController
   private
 
   def ensure_jar_match
-  if @item.jar != @jar
-    not_found
+    if @item.jar != @jar
+      not_found
+    end
   end
 
   def item_params
-    params.require(:item).permit(:comment)
+    case params[:item][:type_id]
+    when "1" #If user selects 'text'
+      params.require(:item).permit(:type_id, :comment)
+    when "2" #If user selects 'image'
+      params.require(:item).permit(:type_id, :type_data, :comment)
+    end
   end
 
 end

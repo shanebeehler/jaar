@@ -1,4 +1,4 @@
 class Jar < ApplicationRecord
-  has_many :notes
+  has_many :items
   belongs_to :user
 end

@@ -1,0 +1,38 @@
+<%= form_for [@jar, @item] do |f| %>
+
+<!-- Errors -->
+<% if @item.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+    <ul>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!-- Form -->
+<div class="field">
+  <%= f.label :type_id %>
+  <%= f.select(:type_id) do %>
+    <% [['Please select an option', 0], ['Text', 1], ['Image', 2]].each do |type| %>
+      <%= content_tag(:option, type.first, value: type.last) %>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="field">
+  <%= f.label :type_data, 'Upload an image' %>
+  <%= f.file_field :type_data %>
+</div>
+<div class="comment-field">
+  <%= f.label :comment %>
+  <%= f.text_field :comment %>
+</div>
+<div class="action">
+  <%= f.submit %>
+</div>
+
+<% end %>

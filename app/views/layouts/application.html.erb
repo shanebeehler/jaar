@@ -4,6 +4,8 @@
     <title>Jaar</title>
     <%= csrf_meta_tags %>
 
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -39,13 +41,13 @@
           <% else %>
           <li>  <%= link_to 'Register', new_users_path %></li>
             <li><%= link_to 'Log In', :login %></li>
+
           <% end %>
           <li><input type="search" placeholder="Search"></li>
           <li><button type="button" class="button">Search</button></li>
         </ul>
       </div>
     </div>
-
 
     </div>
     <div class="alerts">
