@@ -17,6 +17,12 @@ class ItemsController < ApplicationController
   end
 
   def create
+
+    if params[:item][:type_id] == '0'
+      flash[:notice] = "Please select the type of item you'd like to add"
+      redirect_to new_jar_item_path and return
+    end
+
     @item = Item.new(item_params)
     @item.jar = @jar
 
