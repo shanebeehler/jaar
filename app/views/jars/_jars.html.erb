@@ -1,0 +1,5 @@
+<% @jars.each do |jar| %>
+<div class="jar">
+  <h3><%= link_to "#{jar.name}", jar_path(jar) %></h3>
+</div>
+<% end %>

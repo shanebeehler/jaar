@@ -1,13 +1,23 @@
 <h1><%= @jar.name %> Jaar <h1>
 
-<div class="jar">
+  <%= link_to "GIMMIE SOMETHIN ELSE FOO", jar_path(@jar) %>
+
+
+<div>
+  <% if @jar.items.count == 0 %>
+    <p>
+      Your jar is empty. Go ahead and add something!
+    </p>
+  <% else %>
   <% random_item = @jar.items.sample %>
     <% case random_item.type_id  %>
       <% when 1 %>
-      <p><%= random_item.comment %><p>
+      <p><%= random_item.comment %></p>
       <% when 2 %>
       <%= image_tag random_item.type_data.url %>
+      <p><%= random_item.comment %></p>
     <% end %>
+  <% end %>
 </div>
 
 <% if @jar.closed %>
