@@ -11,7 +11,8 @@ $(function () {
     event.preventDefault();
   });
 
-  $('.jar').on('click', function() {
+  $('.jar').on('click', function(event) {
+    event.stopPropagation()
     $.ajax({
       url: $(this).find('a').attr('href'),
       method: 'GET',
@@ -27,11 +28,11 @@ $(function () {
         $('<p>').html(responseData[2]).appendTo(div);
       }
 
-      $('.modal').append(div).fadeIn();
+      $('#random-item').append(div).fadeIn();
     });
   });
 
-  $('.modal').on('click', function() {
+  $('#random-item').on('click', function() {
     $(this).fadeOut();
     $('.modal-content').remove()
   })
