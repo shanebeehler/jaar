@@ -12,30 +12,26 @@
   </head>
 
   <body>
-    <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle></button>
-      <div class="title-bar-title">Menu</div>
-    </div>
 
-    <div class="top-bar" id="example-menu">
+    <div class="top-bar">
       <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-          <li class="menu-text">Jaar</li>
+        <ul class=" dropdown menu" data-dropdown-menu>
+          <li class="menu-text"><a href="#">Jaar</a></li>
           <li>
             <a href="#">Sort By..</a>
-            <ul class="menu vertical">
+            <ul class="menu">
                 <li><a href="#">Recent</a></li>
                 <li><a href="#">Items</a></li>
                 <li><a href="#">Most Popular</a></li>
             </ul>
           </li>
-          <li><a href="#">Two</a></li>
+          <li><%= link_to 'Create A New Jar', new_jar_path %></li>
 
           <li><a href="#">Three</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
-        <ul class="menu">
+        <ul class=" dropdown menu" data-dropdown-menu>
           <% if current_user %>
           <li><%= link_to 'Edit Profile', edit_users_path(current_user.id)  %></li>
           <li><%= link_to 'Log Out', :logout, method: :post %></li>
