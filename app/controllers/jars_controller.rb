@@ -8,9 +8,17 @@ class JarsController < ApplicationController
   end
 
   def show
-    @jar = Jar.find(params[:id])
-    ensure_user_match
-  end
+     @jar = Jar.find(params[:id])
+     ensure_user_match
+     @media = get_random_item(@jar)
+
+     respond_to do |f|
+       f.html
+       f.json do
+         render json: @media
+       end
+     end
+   end
 
   def new
     @jar = Jar.new
@@ -67,6 +75,20 @@ class JarsController < ApplicationController
 
   def jar_params
     params.require(:jar).permit(:name)
+  end
+
+  def get_random_item(jar)
+   if jar.items.count == 0
+     return 'empty'
+   else
+     random_item = jar.items.sample
+     case random_item.type_id
+      when 1
+        return [1, random_item.comment]
+      when 2
+        return [2, random_item.type_data.url, random_item.comment]
+     end
+   end
   end
 
 end
