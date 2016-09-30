@@ -12,14 +12,14 @@ $(function () {
   });
 
   $('.jar').on('click', function(event) {
-    event.stopPropagation()
+
     $.ajax({
       url: $(this).find('a').attr('href'),
       method: 'GET',
       data: {},
       dataType: 'json'
     }).done(function(responseData) {
-      div = $('<div class="modal-content">');
+      div = $('#random-item > .modal-content');
 
       if (responseData[0] === 1) {
         $('<p>').html(responseData[1]).appendTo(div);
@@ -34,6 +34,10 @@ $(function () {
 
   $('#random-item').on('click', function() {
     $(this).fadeOut();
-    $('.modal-content').remove()
+    $('#random-item > .modal-content').html('')
+  })
+
+  $('.modal-content').on('click', function(event){
+    event.stopPropagation()
   })
  });
