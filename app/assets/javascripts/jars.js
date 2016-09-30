@@ -42,4 +42,19 @@ $(function () {
   $('.modal-content').on('click', function(event){
     event.stopPropagation()
   })
+
+  $('.jar').mouseenter(function(){
+    $(this).animate({
+      width: '+=20'
+    }, 250, function(){
+    });
+  });
+
+  $('.jar').mouseleave(function(){
+    $(this).animate({
+      width: '-=20'
+    }, 250, function(){
+    });
+  });
+
  });
