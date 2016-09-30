@@ -21,13 +21,15 @@ $(function () {
     }).done(function(responseData) {
       div = $('#random-item > .modal-content');
 
-      if (responseData.length === 0) {
+      $('<h1>').html(responseData[1]['name']).appendTo(div)
+
+      if (responseData[0].length === 0) {
         $('<p>').html('EMPTY').appendTo(div);
-      } else if (responseData[0] === 1) {
-        $('<p>').html(responseData[1]).appendTo(div);
-      } else if (responseData[0] === 2) {
-        $('<img>').attr('src', responseData[1]).appendTo(div);
-        $('<p>').html(responseData[2]).appendTo(div);
+      } else if (responseData[0][0] === 1) {
+        $('<p>').html(responseData[0][1]).appendTo(div);
+      } else if (responseData[0][0] === 2) {
+        $('<img>').attr('src', responseData[0][1]).appendTo(div);
+        $('<p>').html(responseData[0][2]).appendTo(div);
       }
 
       $('#random-item').append(div).fadeIn();
