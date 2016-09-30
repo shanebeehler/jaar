@@ -23,7 +23,7 @@ background-size: cover;
   display: inline-block;
   border-radius: 10px;
   float: left;
-  border: 1px black solid;
+  // border: 1px black solid;
   padding-top: 10px;
   background-image: image-url('imageedit_2_6472725082.png');
 
@@ -58,4 +58,11 @@ background-size: cover;
 font-size:30px;
 color: white;
 
+}
+.label{
+  width: 1em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block
 }
