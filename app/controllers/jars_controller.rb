@@ -10,14 +10,12 @@ class JarsController < ApplicationController
   def show
     @jar = Jar.find(params[:id])
     ensure_user_match
+    @media = get_random_item(@jar)
 
     respond_to do |f|
       f.html
       f.json do
-        media_url = @jar.items.map do |item|
-          item.type_data.url
-        end
-        render json: [@jar, @jar.items]
+        render json: @media
       end
     end
   end
@@ -61,6 +59,8 @@ class JarsController < ApplicationController
     redirect_to jars_path
   end
 
+
+  private
   def close_jar
     @jar = Jar.find(params[:id])
     @jar.closed = true
@@ -71,27 +71,25 @@ class JarsController < ApplicationController
     end
   end
 
-  private
-
   def ensure_user_match
     if @jar.user != @user
       not_found
     end
   end
 
-  # def get_random_item(jar)
-  #   if jar.items.count == 0
-  #     return false
-  #   else
-  #     random_item = jar.items.sample
-  #     case random_item.type_id
-  #     when 1
-  #       random_item.comment
-  #     when 2
-  #       random_item.type_data.url
-  #     end
-  #   end
-  # end
+  def get_random_item(jar)
+    if jar.items.count == 0
+      return 'empty'
+    else
+      random_item = jar.items.sample
+      case random_item.type_id
+      when 1
+        return [1, random_item.comment]
+      when 2
+        return [2, random_item.type_data.url, random_item.comment]
+      end
+    end
+  end
 
   def jar_params
     params.require(:jar).permit(:name)
