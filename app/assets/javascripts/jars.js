@@ -18,15 +18,21 @@ $(function () {
       data: {},
       dataType: 'json'
     }).done(function(responseData) {
-      div = $('<div>')
+      div = $('<div class="modal-content">');
 
       if (responseData[0] === 1) {
-        $('<p>').html(responseData[1]).appendTo(div)
+        $('<p>').html(responseData[1]).appendTo(div);
       } else if (responseData[0] === 2) {
-        $('<img>').attr('src', responseData[1]).appendTo(div)
+        $('<img>').attr('src', responseData[1]).appendTo(div);
+        $('<p>').html(responseData[2]).appendTo(div);
       }
 
-      $('body').append(div)
+      $('.modal').append(div).fadeIn();
     });
   });
+
+  $('.modal').on('click', function() {
+    $(this).fadeOut();
+    $('.modal-content').remove()
+  })
  });
