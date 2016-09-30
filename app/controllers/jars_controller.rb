@@ -15,7 +15,7 @@ class JarsController < ApplicationController
      respond_to do |f|
        f.html
        f.json do
-         render json: @media
+         render json: [@media, @jar]
        end
      end
    end
@@ -79,7 +79,7 @@ class JarsController < ApplicationController
 
   def get_random_item(jar)
    if jar.items.count == 0
-     return 'empty'
+     return []
    else
      random_item = jar.items.sample
      case random_item.type_id

@@ -16,18 +16,15 @@ right: 160px;
  width: 150px;
  background-size: cover;
  display: inline-block;
- border-radius: 10px;
  float: left;
  padding-top: 10px;
  background-image: image-url('imageedit_2_6472725082.png');
-
 }
 
 
 body{
  margin: auto;
  background-color: #7192c6
-
 }
 
 
@@ -53,6 +50,15 @@ color: white;
 
 }
 
+.label{
+  width: 1em;
+  float: left;
+  text-align: right;
+  margin-right: 0.5em;
+  display: block;
+}
+
+
 .modal {
  display: none;
  position: fixed;
@@ -69,6 +75,7 @@ color: white;
  margin-left: -25%;
  top: 100px;
  background-color: peachpuff;
+
 }
 
 .jar > h3 {

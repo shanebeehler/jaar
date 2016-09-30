@@ -3,14 +3,14 @@
   <head>
     <title>Jaar</title>
     <%= csrf_meta_tags %>
-
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet">
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,700" rel="stylesheet">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<<<<<<< HEAD
   <body>
 
     <div class="top-bar">
@@ -20,37 +20,70 @@
           <li>
             <a href="#">Sort By..</a>
             <ul class="menu">
+=======
+<body>
+<% if current_user %>
+
+<div class="top-bar">
+  <div class="top-bar-left">
+    <ul class="dropdown menu" data-dropdown-menu>
+      <li class="menu-text">JAAR</li>
+        <li>
+          <a href="#">One</a>
+            <ul class="menu vertical">
+              <li><a href="#">Recent</a></li>
+              <li><a href="#">Items</a></li>
+              <li><a href="#">Most Popular</a></li>
+          </ul>
+      </li>
+          <li>
+            <a href="#">Sort By..</a>
+              <ul class="menu vertical">
+>>>>>>> 1f10e3995a893bbec42cf185eb9f59a5404264bb
                 <li><a href="#">Recent</a></li>
                 <li><a href="#">Items</a></li>
                 <li><a href="#">Most Popular</a></li>
             </ul>
           </li>
+<<<<<<< HEAD
           <li><%= link_to 'Create A New Jar', new_jar_path %></li>
 
+=======
+          <li><a href="#">Two</a></li>
+>>>>>>> 1f10e3995a893bbec42cf185eb9f59a5404264bb
           <li><a href="#">Three</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
+<<<<<<< HEAD
         <ul class=" dropdown menu" data-dropdown-menu>
           <% if current_user %>
+=======
+        <ul class="menu">
+
+>>>>>>> 1f10e3995a893bbec42cf185eb9f59a5404264bb
           <li><%= link_to 'Edit Profile', edit_users_path(current_user.id)  %></li>
           <li><%= link_to 'Log Out', :logout, method: :post %></li>
-          <% else %>
-          <li>  <%= link_to 'Register', new_users_path %></li>
-            <li><%= link_to 'Log In', :login %></li>
-
-          <% end %>
           <li><input type="search" placeholder="Search"></li>
           <li><button type="button" class="button">Search</button></li>
         </ul>
-      </div>
-    </div>
+        <div class="alerts">
+          <!-- <p id="notice"><%= flash[:notice] %></p> -->
+          <!-- <p id="alert"><%= flash[:alert] %></p> -->
+        </div>
 
-    </div>
-    <div class="alerts">
-      <p id="notice"><%= flash[:notice] %></p>
-      <p id="alert"><%= flash[:alert] %></p>
-    </div>
+          <% else %>
+          </div>
+            <div class="top-bar" id="example-menu">
+              <div class="top-bar-left">
+                <ul class="dropdown menu" data-dropdown-menu>
+                    <%=render '/user_sessions/form' %>
+           </ul>
+          <% end %>
+      </div>
+        </div>
+          </div>
+
     <%= yield %>
   </body>
 </html>
