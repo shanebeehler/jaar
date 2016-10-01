@@ -10,7 +10,7 @@ class UserSessionsController < ApplicationController
       redirect_to(:jars, notice: 'Login successful')
     else
       flash.now[:alert] = 'Login Failed'
-      render :new
+      render 'pages/landing.html.erb'
     end
   end
 
