@@ -8,16 +8,20 @@ class JarsController < ApplicationController
   end
 
   def show
-     @jar = Jar.find(params[:id])
-     ensure_user_match
-     @media = get_random_item(@jar)
+    @jar = Jar.find(params[:id])
+    ensure_user_match
+    @media = get_random_item(@jar)
 
-     respond_to do |f|
-       f.html
-       f.json do
-         render json: [@media, @jar]
-       end
-     end
+    if request.xhr?
+      render 'show', :layout => false
+    end
+
+    #  respond_to do |f|
+    #    f.html
+    #    f.json do
+    #      render json: [@media, @jar]
+    #    end
+    #  end
    end
 
   def new

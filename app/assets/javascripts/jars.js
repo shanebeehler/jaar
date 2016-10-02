@@ -17,26 +17,30 @@ $(function () {
       url: $(this).find('a').attr('href'),
       method: 'GET',
       data: {},
-      dataType: 'json'
+      dataType: 'html'
     }).done(function(responseData) {
-      div = $('#random-item > .modal-content');
 
-      $('<h1>').html(responseData[1]['name']).appendTo(div)
+      $('#jar-modal > .modal-content').html(responseData);
+      $('#jar-modal').fadeIn()
 
-      if (responseData[0].length === 0) {
-        $('<p>').html('EMPTY').appendTo(div);
-      } else if (responseData[0][0] === 1) {
-        $('<p>').html(responseData[0][1]).appendTo(div);
-      } else if (responseData[0][0] === 2) {
-        $('<img>').attr('src', responseData[0][1]).appendTo(div);
-        $('<p>').html(responseData[0][2]).appendTo(div);
-      }
-
-      $('#random-item').append(div).fadeIn();
+      // div = $('#random-item > .modal-content');
+      //
+      // $('<h1>').html(responseData[1]['name']).appendTo(div)
+      //
+      // if (responseData[0].length === 0) {
+      //   $('<p>').html('EMPTY').appendTo(div);
+      // } else if (responseData[0][0] === 1) {
+      //   $('<p>').html(responseData[0][1]).appendTo(div);
+      // } else if (responseData[0][0] === 2) {
+      //   $('<img>').attr('src', responseData[0][1]).appendTo(div);
+      //   $('<p>').html(responseData[0][2]).appendTo(div);
+      // }
+      //
+      // $('#random-item').append(div).fadeIn();
     });
   });
 
-  $('#random-item').on('click', function() {
+  $('#jar-modal').on('click', function() {
     $(this).fadeOut();
     $('#random-item > .modal-content').html('')
   })
