@@ -38,6 +38,31 @@ $(function () {
           }
         });
       });
+      $('#edit').on('click', function(event){
+        event.preventDefault();
+        $.ajax({
+          url: $(this).attr('href'),
+          method: 'GET',
+          data: {},
+          dataType: 'html'
+        }).done(function(returnData){
+          $('#jar-modal > .modal-content > h1').html(returnData);
+        }).done(function(){
+          $('.edit_jar').on('submit', function(event){
+            event.preventDefault();
+            $.ajax({
+              url: $(this).attr('action'),
+              method:'PATCH',
+              data: $(this).serialize(),
+              dataType: 'json'
+            }).done(function(returnData){
+              $('#jar-modal > .modal-content > h1').html(returnData['name']);
+            });
+          });
+
+
+        });
+      })
     });
   });
 

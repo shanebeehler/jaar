@@ -40,13 +40,20 @@ class JarsController < ApplicationController
 
   def edit
     @jar = Jar.find(params[:id])
+    if request.xhr?
+      render 'edit', :layout => false
+    end
   end
 
   def update
     @jar = Jar.find(params[:id])
 
     if @jar.update(jar_params)
-      redirect_to jars_path
+      if request.xhr?
+        render json: @jar
+      else
+        redirect_to jars_path
+      end
     else
       render edit_jar_path
     end
