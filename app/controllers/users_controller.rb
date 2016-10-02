@@ -10,6 +10,15 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def update
+    @user = current_user
+      if @user.update_attributes(user_edit_params)
+        redirect_to root_path
+      else
+        render :edit
+      end
+  end
+
   def create
     @user = User.create(user_params)
     if @user.save
@@ -27,6 +36,9 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation)
   end
 
+  def user_edit_params
+    params.require(:user).permit(:email, :first_name, :last_name)
+  end
 
 
 end

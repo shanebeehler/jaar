@@ -1,0 +1,17 @@
+<%= form_for(:user, url: users_path, html: {method: "PATCH"})do |f| %>
+  <div class="sign-in-field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="sign-in-field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="sign-in-field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="sign-in-field">
+    <%= f.submit %>
+  </div>
+<% end %>
