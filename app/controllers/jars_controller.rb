@@ -13,15 +13,14 @@ class JarsController < ApplicationController
     @media = get_random_item(@jar)
 
     if request.xhr?
-      render 'show', :layout => false
+      respond_to do |f|
+        f.html { render 'show', :layout => false }
+        f.json do
+          render json: @media
+        end
+      end
     end
 
-    #  respond_to do |f|
-    #    f.html
-    #    f.json do
-    #      render json: [@media, @jar]
-    #    end
-    #  end
    end
 
   def new

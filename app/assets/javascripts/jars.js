@@ -19,24 +19,25 @@ $(function () {
       data: {},
       dataType: 'html'
     }).done(function(responseData) {
-
       $('#jar-modal > .modal-content').html(responseData);
       $('#jar-modal').fadeIn()
-
-      // div = $('#random-item > .modal-content');
-      //
-      // $('<h1>').html(responseData[1]['name']).appendTo(div)
-      //
-      // if (responseData[0].length === 0) {
-      //   $('<p>').html('EMPTY').appendTo(div);
-      // } else if (responseData[0][0] === 1) {
-      //   $('<p>').html(responseData[0][1]).appendTo(div);
-      // } else if (responseData[0][0] === 2) {
-      //   $('<img>').attr('src', responseData[0][1]).appendTo(div);
-      //   $('<p>').html(responseData[0][2]).appendTo(div);
-      // }
-      //
-      // $('#random-item').append(div).fadeIn();
+    }).done(function(){
+      $('#refresh').on('click', function(event){
+        event.preventDefault()
+        $.ajax({
+          url: $(this).attr('href'),
+          method: 'GET',
+          data: {},
+          dataType: 'json'
+        }).done(function(returnData){
+          if (returnData[0] === 1) {
+            $('#random-item').html($('<p>').append(returnData[1]));
+          } else if (returnData[0] === 2) {
+            $('#random-item').html($('<img>').attr('src', returnData[1]));
+            $('#random-item').append($('<p>').html(returnData[2]));
+          }
+        });
+      });
     });
   });
 
