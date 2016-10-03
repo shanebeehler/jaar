@@ -17,26 +17,57 @@ $(function () {
       url: $(this).find('a').attr('href'),
       method: 'GET',
       data: {},
-      dataType: 'json'
+      dataType: 'html'
     }).done(function(responseData) {
-      div = $('#random-item > .modal-content');
+      $('#jar-modal > .modal-content').html(responseData);
+      $('#jar-modal').fadeIn()
+    }).done(function(){
+      $('#refresh').on('click', function(event){
+        event.preventDefault()
+        $.ajax({
+          url: $(this).attr('href'),
+          method: 'GET',
+          data: {},
+          dataType: 'json'
+        }).done(function(returnData){
+          if (returnData[0] === 1) {
+            $('#random-item').html($('<p>').append(returnData[1]));
+          } else if (returnData[0] === 2) {
+            $('#random-item').html($('<img>').attr('src', returnData[1]));
+            $('#random-item').append($('<p>').html(returnData[2]));
+          }
+        });
+      });
+      $('#edit').on('click', function(event){
+        event.preventDefault();
+        $.ajax({
+          url: $(this).attr('href'),
+          method: 'GET',
+          data: {},
+          dataType: 'html'
+        }).done(function(returnData){
+          $('#jar-modal > .modal-content > h1').html(returnData);
+        }).done(function(){
+          $('.edit_jar').on('submit', function(event){
+            event.preventDefault();
+            $.ajax({
+              url: $(this).attr('action'),
+              method:'PUT',
+              data: $(this).serialize(),
+              dataType: 'json'
+            }).done(function(returnData){
+              $('#jar-modal > .modal-content > h1').html(returnData['name']);
+              $('#jar-' + returnData['id'] +' a').html(returnData['name'])
+            });
+          });
 
-      $('<h1>').html(responseData[1]['name']).appendTo(div)
 
-      if (responseData[0].length === 0) {
-        $('<p>').html('EMPTY').appendTo(div);
-      } else if (responseData[0][0] === 1) {
-        $('<p>').html(responseData[0][1]).appendTo(div);
-      } else if (responseData[0][0] === 2) {
-        $('<img>').attr('src', responseData[0][1]).appendTo(div);
-        $('<p>').html(responseData[0][2]).appendTo(div);
-      }
-
-      $('#random-item').append(div).fadeIn();
+        });
+      })
     });
   });
 
-  $('#random-item').on('click', function() {
+  $('#jar-modal').on('click', function() {
     $(this).fadeOut();
     $('#random-item > .modal-content').html('')
   })
