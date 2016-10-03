@@ -1,6 +1,67 @@
 $(function () {
 
+  function listenToJars() {
 
+    $('.jar a').on('click', function(event) {
+      event.preventDefault();
+    });
+
+    $('.jar').on('click', function(event) {
+
+      $.ajax({
+        url: $(this).find('a').attr('href'),
+        method: 'GET',
+        data: {},
+        dataType: 'html'
+      }).done(function(responseData) {
+        $('#jar-modal > .modal-content').html(responseData);
+        $('#jar-modal').fadeIn()
+      }).done(function(){
+        $('#refresh').on('click', function(event){
+          event.preventDefault()
+          $.ajax({
+            url: $(this).attr('href'),
+            method: 'GET',
+            data: {},
+            dataType: 'json'
+          }).done(function(returnData){
+            if (returnData[0] === 1) {
+              $('#random-item').html($('<p>').append(returnData[1]));
+            } else if (returnData[0] === 2) {
+              $('#random-item').html($('<img>').attr('src', returnData[1]));
+              $('#random-item').append($('<p>').html(returnData[2]));
+            }
+          });
+        });
+        $('#edit').on('click', function(event){
+          event.preventDefault();
+          $.ajax({
+            url: $(this).attr('href'),
+            method: 'GET',
+            data: {},
+            dataType: 'html'
+          }).done(function(returnData){
+            $('#jar-modal > .modal-content > h1').html(returnData);
+          }).done(function(){
+            $('.edit_jar').on('submit', function(event){
+              event.preventDefault();
+              $.ajax({
+                url: $(this).attr('action'),
+                method:'PUT',
+                data: $(this).serialize(),
+                dataType: 'json'
+              }).done(function(returnData){
+                $('#jar-modal > .modal-content > h1').html(returnData['name']);
+                $('#jar-' + returnData['id'] +' a').html(returnData['name'])
+              });
+            });
+
+
+          });
+        })
+      });
+    });
+  }
 
   $('#new-jar').on('click', function(event) {
     event.preventDefault();
@@ -14,73 +75,8 @@ $(function () {
   });
 
 
+  listenToJars()
 
-
-  $('.jar a').on('click', function(event) {
-    event.preventDefault();
-  });
-
-
-
-  $('.jar').on('click', function(event) {
-    $.ajax({
-      url: $(this).find('a').attr('href'),
-      method: 'GET',
-      data: {},
-      dataType: 'html'
-    }).done(function(responseData) {
-      $('#jar-modal > .modal-content').html(responseData);
-      $('#jar-modal').fadeIn()
-    }).done(function(){
-      $('#refresh').on('click', function(event){
-        event.preventDefault()
-        $.ajax({
-          url: $(this).attr('href'),
-          method: 'GET',
-          data: {},
-          dataType: 'json'
-        }).done(function(returnData){
-          if (returnData[0] === 1) {
-            $('#random-item').html($('<p>').append(returnData[1]));
-          } else if (returnData[0] === 2) {
-            $('#random-item').html($('<img>').attr('src', returnData[1]));
-            $('#random-item').append($('<p>').html(returnData[2]));
-          } else if (returnData[0] === 3) {
-            $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true).attr('autoplay', 'autoplay'));
-            $('#random-item').append($('<p>').html(responseData[2]));
-          }
-        });
-      });
-    });
-
-
-      $('#edit').on('click', function(event){
-        event.preventDefault();
-        $.ajax({
-          url: $(this).attr('href'),
-          method: 'GET',
-          data: {},
-          dataType: 'html'
-        }).done(function(returnData){
-          $('#jar-modal > .modal-content > h1').html(returnData);
-        }).done(function(){
-          $('.edit_jar').on('submit', function(event){
-            event.preventDefault();
-            $.ajax({
-              url: $(this).attr('action'),
-              method:'PUT',
-              data: $(this).serialize(),
-              dataType: 'json'
-            }).done(function(returnData){
-              $('#jar-modal > .modal-content > h1').html(returnData['name']);
-              $('#jar-' + returnData['id'] +' a').html(returnData['name'])
-            });
-          });
-
-      });
-
-    });
-  });
 
   $('#jar-modal').on('click', function() {
     $(this).fadeOut();
@@ -104,37 +100,42 @@ $(function () {
     }, 250, function(){
     });
   });
-
   // -----------------
   // NAV BAR FUNCTIONS
   // -----------------
+  function replace_jars(newJars){
+    $('.jar').remove();
+    newJars.forEach(function(jar){
+      $('#shelf-1').append($('<div class="jar">').append($('<h3>').append($('<a href=/jars/' + jar.id + '>').html(jar.name))));
+    });
+  };
 
-  $('#sort-all').on('click', function(event) {
-    event.preventDefault();
-    $.ajax({
-      url: '/jars',
-      method: 'GET',
-      data: {},
-      datatype: 'JSON',
-    })
-  });
 
   $('#sort-closed').on('click', function(event) {
     event.preventDefault();
     $.ajax({
-      url: '/jars',
+      url: '/jars/sort',
       method: 'GET',
-      data: {},
-      datatype: 'JSON',
-    })
-  });
-
-  $('#sort-alpha').on('click', function(event) {
-    event.preventDefault();
+      data: {scope: 'closed'},
+      dataType: 'json'
+    }).done(function(response){
+      replace_jars(response);
+    }).done(function(){
+      listenToJars();
+    });
   });
 
   $('#sort-recent').on('click', function(event) {
     event.preventDefault();
+    $.ajax({
+      url: '/jars/sort',
+      method: 'GET',
+      data: {scope: 'recent'},
+      dataType: 'json'
+    }).done(function(response){
+      replace_jars(response);
+    }).done(function(){
+      listenToJars();
+    });
   });
-
  });

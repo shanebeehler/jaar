@@ -4,7 +4,7 @@ class JarsController < ApplicationController
   end
 
   def index
-    @jars = @user.jars
+    @jars = @user.jars.newest_first
   end
 
   def show
@@ -73,6 +73,17 @@ class JarsController < ApplicationController
     else
       render show_jar_path(@jar)
     end
+  end
+
+  def sort
+    puts '###################################################'
+    puts params[:scope]
+    if params[:scope] == 'closed'
+      @jars = @user.jars.closed
+    elsif params[:scope] == 'recent'
+      @jars = @user.jars.newest_first
+    end
+    render json: @jars
   end
 
   private
