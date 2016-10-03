@@ -99,11 +99,6 @@ $(function () {
     });
   };
 
-  $('#sort-all').on('click', function(event) {
-    event.preventDefault();
-
-  });
-
   $('#sort-closed').on('click', function(event) {
     event.preventDefault();
     $.ajax({
@@ -115,9 +110,7 @@ $(function () {
       replace_jars(response);
     });
   });
-  $('#sort-alpha').on('click', function(event) {
-    event.preventDefault();
-  })
+
   $('#sort-recent').on('click', function(event) {
     event.preventDefault();
     $.ajax({
