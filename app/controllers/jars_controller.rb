@@ -4,7 +4,7 @@ class JarsController < ApplicationController
   end
 
   def index
-    @jars = @user.jars
+    @jars = @user.jars.newest_first
   end
 
   def show
