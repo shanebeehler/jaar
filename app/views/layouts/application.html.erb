@@ -43,11 +43,12 @@
           <li><%= link_to 'Log Out', :logout, method: :post %></li>
         </ul>
   </div>
-  <div class="alerts">
-        <p id="notice"><%= flash[:notice] %></p>
-        <p id="alert"><%= flash[:alert] %></p>
-  </div>
 </div>
+<div class="alerts">
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+</div>
+
 
 <% else %>
 
