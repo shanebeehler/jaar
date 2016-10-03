@@ -76,8 +76,12 @@ class JarsController < ApplicationController
   end
 
   def sort
-    if params['scope'] = 'closed'
+    puts '###################################################'
+    puts params[:scope]
+    if params[:scope] == 'closed'
       @jars = @user.jars.closed
+    elsif params[:scope] == 'recent'
+      @jars = @user.jars.newest_first
     end
     render json: @jars
   end

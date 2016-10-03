@@ -92,24 +92,27 @@ $(function () {
   // -----------------
   // NAV BAR FUNCTIONS
   // -----------------
+  function replace_jars(newJars){
+    $('.jar').remove();
+    newJars.forEach(function(jar){
+      $('#shelf-1').append($('<div class="jar">').append($('<a>').html(jar.name)));
+    });
+  };
 
   $('#sort-all').on('click', function(event) {
     event.preventDefault();
 
-  })
+  });
 
   $('#sort-closed').on('click', function(event) {
     event.preventDefault();
     $.ajax({
-      url: '/jars/sort/closed',
+      url: '/jars/sort',
       method: 'GET',
-      data: {},
+      data: {scope: 'closed'},
       dataType: 'json'
     }).done(function(response){
-      $('.jar').remove();
-      response.forEach(function(jar){
-        
-      });
+      replace_jars(response);
     });
   });
   $('#sort-alpha').on('click', function(event) {
@@ -117,5 +120,13 @@ $(function () {
   })
   $('#sort-recent').on('click', function(event) {
     event.preventDefault();
+    $.ajax({
+      url: '/jars/sort',
+      method: 'GET',
+      data: {scope: 'recent'},
+      dataType: 'json'
+    }).done(function(response){
+      replace_jars(response);
+    });
   })
  });

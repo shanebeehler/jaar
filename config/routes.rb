@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'jars/sort' => 'jars#sort'
 
   resources :jars do
     resources :items
   end
-  get 'jars/sort/:scope' => 'jars#sort'
 
   resource :users
   root 'jars#index'
