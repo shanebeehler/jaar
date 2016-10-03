@@ -2,27 +2,24 @@ h1{
 color: white;
 text-align: center;
 padding-top: 10px;
-// position: relative;
 right: 160px;
 
 }
-
-.border-box{
- box-sizing: border-box;
-}
+//
+// .border-box{
+//  box-sizing: border-box;
+// }
 
 .jar{
- height: 130px;
- width: 150px;
+ height: 230px;
+ width: 120px;
 background-size: cover;
-clear: left;
- // background-size: cover;
- // display: inline-block;
- // float: left;
+display: inline-block;
+padding-top: 10px;
+margin-left: 22px;
+margin-top: 15px;
+ background-image: image-url('jar.png');
 
-   // border: 1px black solid;
- padding-top: 10px;
- background-image: image-url('imageedit_2_6472725082.png');
 }
 
 
@@ -35,15 +32,15 @@ body{
 
 .collection{
  box-sizing: content-box;
- height: 600px;
+ height: 625px;
  width: 80%;
  border-radius: 10px;
  left: 30%;
- padding-top: 15px;
+ padding-top: 10px;
  margin: auto;
 }
 .shelf{
-height: 24%;
+height: 43%;
 border-radius: 10px;
 border: 1px white solid;
 display: block;
@@ -55,10 +52,10 @@ color: white;
 }
 
 .label{
-  width: 1em;
+  width: 2em;
   float: left;
   text-align: right;
-  margin-right: 0.5em;
+  // margin-right: 0.5em;
   display: block;
 }
 
@@ -74,16 +71,24 @@ color: white;
 
 .modal-content {
  position: relative;
+padding: 75px;
+// padding-top: 350px;
  width: 50%;
  left: 50%;
+ height: 100%;
  margin-left: -25%;
- top: 100px;
- background-color: peachpuff;
-
+ // top: -10px;
+ background-image: image-url('jar.png');
+ background-position:50% 45%;
+}
+.jar > h3 > a {
+  color: black;
+  text-decoration: none;
+  font-size: 25px;
 }
 
 .jar > h3 {
-  text-align: center;
+text-align: center;
   line-height: 9rem;
 }
 
@@ -95,4 +100,16 @@ color: white;
 h3,
 p {
   color: white;
+}
+
+.modal-content > h1 {
+  color: yellow;
+}
+.modal-content > #refresh {
+  color: yellow;
+
+}
+#random-item > p {
+  color: black;
+  font-size: 45px;
 }
