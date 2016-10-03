@@ -1,18 +1,28 @@
 $(function () {
+
+
+
   $('#new-jar').on('click', function(event) {
     event.preventDefault();
     $('#new-jar-modal').fadeIn();
   });
+
+
+
   $('#new-jar-modal').on('click', function() {
     $('#new-jar-modal').fadeOut();
   });
+
+
+
 
   $('.jar a').on('click', function(event) {
     event.preventDefault();
   });
 
-  $('.jar').on('click', function(event) {
 
+
+  $('.jar').on('click', function(event) {
     $.ajax({
       url: $(this).find('a').attr('href'),
       method: 'GET',
@@ -35,9 +45,15 @@ $(function () {
           } else if (returnData[0] === 2) {
             $('#random-item').html($('<img>').attr('src', returnData[1]));
             $('#random-item').append($('<p>').html(returnData[2]));
+          } else if (returnData[0] === 3) {
+            $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true).attr('autoplay', 'autoplay'));
+            $('#random-item').append($('<p>').html(responseData[2]));
           }
         });
       });
+    });
+
+
       $('#edit').on('click', function(event){
         event.preventDefault();
         $.ajax({
@@ -61,9 +77,8 @@ $(function () {
             });
           });
 
+      });
 
-        });
-      })
     });
   });
 
@@ -88,6 +103,38 @@ $(function () {
       width: '-=20'
     }, 250, function(){
     });
+  });
+
+  // -----------------
+  // NAV BAR FUNCTIONS
+  // -----------------
+
+  $('#sort-all').on('click', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/jars',
+      method: 'GET',
+      data: {},
+      datatype: 'JSON',
+    })
+  });
+
+  $('#sort-closed').on('click', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/jars',
+      method: 'GET',
+      data: {},
+      datatype: 'JSON',
+    })
+  });
+
+  $('#sort-alpha').on('click', function(event) {
+    event.preventDefault();
+  });
+
+  $('#sort-recent').on('click', function(event) {
+    event.preventDefault();
   });
 
  });
