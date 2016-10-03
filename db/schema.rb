@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928170104) do
+ActiveRecord::Schema.define(version: 20161003174717) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160928170104) do
     t.string   "type_data_content_type"
     t.integer  "type_data_file_size"
     t.datetime "type_data_updated_at"
+    t.string   "movie_meta"
   end
 
   create_table "jars", force: :cascade do |t|

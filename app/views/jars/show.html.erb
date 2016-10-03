@@ -3,7 +3,8 @@
  <h4 class="random"><%= link_to "New Randon Note", jar_path(@jar), id: 'refresh' %></h4>
 
 
-<div id="random-item">
+<div class="media" id="random-item">
+
 
  <% if @media == 'empty' %>
    <p>your jar is empty. Go ahead and add something!</p>
@@ -13,6 +14,9 @@
        <p><%= @media[1] %></p>
      <% when 2 %>
        <%= image_tag @media[1] %>
+       <p><%= @media[2] %></p>
+     <% when 3 %>
+       <%= video_tag @media[1], controls: true %>
        <p><%= @media[2] %></p>
    <% end %>
  <% end %>

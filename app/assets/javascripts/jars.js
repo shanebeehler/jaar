@@ -1,6 +1,11 @@
 $(function () {
 
   function listenToJars() {
+
+    $('.jar a').on('click', function(event) {
+      event.preventDefault();
+    });
+
     $('.jar').on('click', function(event) {
 
       $.ajax({
@@ -62,15 +67,16 @@ $(function () {
     event.preventDefault();
     $('#new-jar-modal').fadeIn();
   });
+
+
+
   $('#new-jar-modal').on('click', function() {
     $('#new-jar-modal').fadeOut();
   });
 
-  $('.jar a').on('click', function(event) {
-    event.preventDefault();
-  });
 
   listenToJars()
+
 
   $('#jar-modal').on('click', function() {
     $(this).fadeOut();
@@ -100,9 +106,10 @@ $(function () {
   function replace_jars(newJars){
     $('.jar').remove();
     newJars.forEach(function(jar){
-      $('#shelf-1').append($('<div class="jar">').append($('<a href=/jars/' + jar.id + '>').html(jar.name)));
+      $('#shelf-1').append($('<div class="jar">').append($('<h3>').append($('<a href=/jars/' + jar.id + '>').html(jar.name))));
     });
   };
+
 
   $('#sort-closed').on('click', function(event) {
     event.preventDefault();
@@ -130,5 +137,5 @@ $(function () {
     }).done(function(){
       listenToJars();
     });
-  })
+  });
  });
