@@ -36,15 +36,16 @@ h1.intro-head{
 }
 .intro-sub-head{
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.25rem;
   color: white;
+  font-style: italic;
 }
 
 .jar-pronounce {
   font-style: italic;
 }
 .intro-description{
-  font-size: 20px ;
+  font-size: 1.5rem ;
   color: white;
 }
 
@@ -55,4 +56,8 @@ h1.intro-head{
 .form-page > label,
 .form-page-option > label {
   color: #2199e8;
+}
+
+.new_user {
+  padding-top: 50px;
 }
