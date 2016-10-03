@@ -89,5 +89,22 @@ $(function () {
     }, 250, function(){
     });
   });
+  // -----------------
+  // NAV BAR FUNCTIONS
+  // -----------------
 
+  $('#sort-all').on('click', function(event) {
+    event.preventDefault();
+
+  })
+
+  $('#sort-closed').on('click', function(event) {
+    event.preventDefault();
+  })
+  $('#sort-alpha').on('click', function(event) {
+    event.preventDefault();
+  })
+  $('#sort-recent').on('click', function(event) {
+    event.preventDefault();
+  })
  });
