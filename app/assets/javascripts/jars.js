@@ -52,11 +52,12 @@ $(function () {
             event.preventDefault();
             $.ajax({
               url: $(this).attr('action'),
-              method:'PATCH',
+              method:'PUT',
               data: $(this).serialize(),
               dataType: 'json'
             }).done(function(returnData){
               $('#jar-modal > .modal-content > h1').html(returnData['name']);
+              $('#jar-' + returnData['id'] +' a').html(returnData['name'])
             });
           });
 
