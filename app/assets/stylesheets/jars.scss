@@ -92,3 +92,29 @@ h3,
 p {
   color: white;
 }
+
+.media {
+  width: 100%;
+}
+
+.media > video,
+.media > image {
+  display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.modal-content > video,
+.modal-content > image {
+  width: 320px;
+  height: 240px;
+}
+
+.modal-content > video,
+.modal-content > image,
+.modal-content > p {
+  margin: auto;
+  display: block;
+  text-align: center;
+  color: blue;
+}

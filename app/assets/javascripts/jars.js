@@ -30,8 +30,10 @@ $(function () {
       } else if (responseData[0][0] === 2) {
         $('<img>').attr('src', responseData[0][1]).appendTo(div);
         $('<p>').html(responseData[0][2]).appendTo(div);
+      } else if (responseData[0][0] === 3) {
+        $('<video>').attr('src', responseData[0][1]).attr('controls', true).attr('autoplay', 'autoplay').appendTo(div);
+        $('<p>').html(responseData[0][2]).appendTo(div);
       }
-
       $('#random-item').append(div).fadeIn();
     });
   });
@@ -57,6 +59,38 @@ $(function () {
       width: '-=20'
     }, 250, function(){
     });
+  });
+
+  // -----------------
+  // NAV BAR FUNCTIONS
+  // -----------------
+
+  $('#sort-all').on('click', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/jars',
+      method: 'GET',
+      data: {},
+      datatype: 'JSON',
+    })
+  });
+
+  $('#sort-closed').on('click', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: '/jars',
+      method: 'GET',
+      data: {},
+      datatype: 'JSON',
+    })
+  });
+
+  $('#sort-alpha').on('click', function(event) {
+    event.preventDefault();
+  });
+
+  $('#sort-recent').on('click', function(event) {
+    event.preventDefault();
   });
 
  });
