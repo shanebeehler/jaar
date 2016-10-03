@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
       # redirect_to [@jar, @item]
       redirect_to jar_path(@jar)
     else
-      render new_jar_user_path
+      render :new
     end
   end
 
@@ -68,6 +68,8 @@ class ItemsController < ApplicationController
     when "1" #If user selects 'text'
       params.require(:item).permit(:type_id, :comment)
     when "2" #If user selects 'image'
+      params.require(:item).permit(:type_id, :type_data, :comment)
+    when "3" #If user selects 'video'
       params.require(:item).permit(:type_id, :type_data, :comment)
     end
   end

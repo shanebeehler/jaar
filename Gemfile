@@ -32,6 +32,8 @@ gem "paperclip", "~> 5.0.0"
 
 gem 'sorcery'
 gem 'figaro'
+
+gem 'paperclip-av-transcoder'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
