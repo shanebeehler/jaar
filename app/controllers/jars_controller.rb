@@ -75,6 +75,13 @@ class JarsController < ApplicationController
     end
   end
 
+  def sort
+    if params['scope'] = 'closed'
+      @jars = @user.jars.closed
+    end
+    render json: @jars
+  end
+
   private
 
   def ensure_user_match

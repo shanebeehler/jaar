@@ -100,7 +100,18 @@ $(function () {
 
   $('#sort-closed').on('click', function(event) {
     event.preventDefault();
-  })
+    $.ajax({
+      url: '/jars/sort/closed',
+      method: 'GET',
+      data: {},
+      dataType: 'json'
+    }).done(function(response){
+      $('.jar').remove();
+      response.forEach(function(jar){
+        
+      });
+    });
+  });
   $('#sort-alpha').on('click', function(event) {
     event.preventDefault();
   })

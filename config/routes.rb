@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :jars do
     resources :items
   end
+  get 'jars/sort/:scope' => 'jars#sort'
 
   resource :users
   root 'jars#index'
