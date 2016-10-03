@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'jars/sort' => 'jars#sort'
 
   resources :jars do
     resources :items

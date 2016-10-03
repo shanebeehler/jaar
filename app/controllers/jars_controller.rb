@@ -4,20 +4,23 @@ class JarsController < ApplicationController
   end
 
   def index
-    @jars = @user.jars
+    @jars = @user.jars.newest_first
   end
 
   def show
-     @jar = Jar.find(params[:id])
-     ensure_user_match
-     @media = get_random_item(@jar)
+    @jar = Jar.find(params[:id])
+    ensure_user_match
+    @media = get_random_item(@jar)
 
-     respond_to do |f|
-       f.html
-       f.json do
-         render json: [@media, @jar]
-       end
-     end
+    if request.xhr?
+      respond_to do |f|
+        f.html { render 'show', :layout => false }
+        f.json do
+          render json: @media
+        end
+      end
+    end
+
    end
 
   def new
@@ -37,13 +40,20 @@ class JarsController < ApplicationController
 
   def edit
     @jar = Jar.find(params[:id])
+    if request.xhr?
+      render 'edit', :layout => false
+    end
   end
 
   def update
     @jar = Jar.find(params[:id])
 
     if @jar.update(jar_params)
-      redirect_to jars_path
+      if request.xhr?
+        render json: @jar
+      else
+        redirect_to jars_path
+      end
     else
       render edit_jar_path
     end
@@ -65,6 +75,17 @@ class JarsController < ApplicationController
     end
   end
 
+  def sort
+    puts '###################################################'
+    puts params[:scope]
+    if params[:scope] == 'closed'
+      @jars = @user.jars.closed
+    elsif params[:scope] == 'recent'
+      @jars = @user.jars.newest_first
+    end
+    render json: @jars
+  end
+
   private
 
   def ensure_user_match
@@ -79,7 +100,7 @@ class JarsController < ApplicationController
 
   def get_random_item(jar)
    if jar.items.count == 0
-     return []
+     return 'empty'
    else
      random_item = jar.items.sample
      case random_item.type_id

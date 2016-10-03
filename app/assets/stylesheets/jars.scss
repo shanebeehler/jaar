@@ -11,49 +11,49 @@ right: 160px;
  box-sizing: border-box;
 }
 
-
-
 .jar{
  height: 130px;
  width: 150px;
+<<<<<<< HEAD
 background-size: cover;
 
 clear: left;
+=======
+ background-size: cover;
+>>>>>>> 76df6154bf4e8c2ea301ba2bf0643a95895c28b3
  display: inline-block;
- // border-radius: 10px;
  float: left;
+<<<<<<< HEAD
    // border: 1px black solid;
+=======
+>>>>>>> 76df6154bf4e8c2ea301ba2bf0643a95895c28b3
  padding-top: 10px;
  background-image: image-url('imageedit_2_6472725082.png');
-
-
 }
 
 
 body{
  margin: auto;
  background-color: #7192c6
-
 }
 
 
 
 .collection{
  box-sizing: content-box;
- position: relative;
  height: 600px;
- width: 500px;
+ width: 80%;
  border-radius: 10px;
  left: 30%;
  padding-top: 15px;
-
+ margin: auto;
 }
 .shelf{
 height: 24%;
 border-radius: 10px;
 border: 1px white solid;
 display: block;
-background-image: image-url('K9PZheO1RSiNMMP1ptsl_wood.jpg');
+background-image: image-url('bookshelf.jpg');
 background-size: cover;
 font-size:30px;
 color: white;
@@ -86,4 +86,19 @@ color: white;
  top: 100px;
  background-color: peachpuff;
 
+}
+
+.jar > h3 {
+  text-align: center;
+  line-height: 9rem;
+}
+
+.alerts {
+  color: white;
+  text-align: center;
+}
+
+h3,
+p {
+  color: white;
 }

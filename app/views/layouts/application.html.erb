@@ -10,57 +10,57 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+
 <body>
 <% if current_user %>
 
 <div class="top-bar">
   <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
+    <ul class=" dropdown menu" data-dropdown-menu>
       <li class="menu-text">JAAR</li>
-        <li>
-          <a href="#">One</a>
-            <ul class="menu vertical">
-              <li><a href="#">Recent</a></li>
-              <li><a href="#">Items</a></li>
-              <li><a href="#">Most Popular</a></li>
-          </ul>
-      </li>
-          <li>
-            <a href="#">Sort By..</a>
-              <ul class="menu vertical">
-                <li><a href="#">Recent</a></li>
-                <li><a href="#">Items</a></li>
-                <li><a href="#">Most Popular</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
-      </div>
-      <div class="top-bar-right">
+      <li><%= link_to "Create A New Jar", new_jar_path %></li>
+
+      <!-- This navigation requires jquery before activating -->
+      <li><a>Sort By</a>
         <ul class="menu">
-
-          <li><%= link_to 'Edit Profile', edit_users_path(current_user.id)  %></li>
-          <li><%= link_to 'Log Out', :logout, method: :post %></li>
-          <li><input type="search" placeholder="Search"></li>
-          <li><button type="button" class="button">Search</button></li>
+          <!-- <li ><a id="sort-all" href="#">All Jars</a></li> -->
+          <li ><a id="sort-closed" href="#">Closed Jars</a></li>
+          <!-- <li ><a id="sort-alpha" href="#">Alphabetical</a></li> -->
+          <li ><a id="sort-recent" href="#">Most Recent</a></li>
         </ul>
-        <div class="alerts">
-          <!-- <p id="notice"><%= flash[:notice] %></p> -->
-          <!-- <p id="alert"><%= flash[:alert] %></p> -->
-        </div>
+      </li>
 
-          <% else %>
-          </div>
-            <div class="top-bar" id="example-menu">
-              <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <%=render '/user_sessions/form' %>
-           </ul>
-          <% end %>
-      </div>
-        </div>
-          </div>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+        <ul class="menu" data-dropdown-menu>
+
+          <!-- This will require a search function in application controller to activate -->
+          <!-- <li><input type="search" placeholder="Search"></li>
+          <li><button type="button" class="button">Search</button></li> -->
+
+          <li><%= link_to 'Edit Profile', edit_users_path(current_user)  %></li>
+          <li><%= link_to 'Log Out', :logout, method: :post %></li>
+        </ul>
+  </div>
+</div>
+<div class="alerts">
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+</div>
+
+
+<% else %>
+
+<div class="top-bar" id="example-menu">
+  <div class="top-bar-left">
+    <ul id="login-text-colour" class="dropdown menu" data-dropdown-menu>
+      <%=render '/user_sessions/form' %>
+    </ul>
+  </div>
+</div>
+
+<% end %>
 
     <%= yield %>
   </body>
