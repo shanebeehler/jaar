@@ -28,9 +28,9 @@
      This jar is closed
    </p>
 <% else %>
-  <%= button_to 'Add New Item to Jar', new_jar_item_path(@jar), method: :get %>
+  <%= link_to 'Add New Item to Jar', new_jar_item_path(@jar), id: 'new' %>
 
   <%= link_to 'Edit Jaar Information', edit_jar_path, id: 'edit' %>
 
-  <%= button_to 'Close Jar', action: 'close_jar'  %>
+  <%= link_to 'Close Jar', action: 'close_jar'  %>
 <% end %>

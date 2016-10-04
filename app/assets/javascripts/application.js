@@ -15,5 +15,6 @@
 //= require foundation
 //= require turbolinks
 //= require_tree .
+//= require jquery-fileupload/basic
 
 $(function(){ $(document).foundation(); });
