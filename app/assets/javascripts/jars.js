@@ -30,6 +30,9 @@ $(function () {
             } else if (returnData[0] === 2) {
               $('#random-item').html($('<img>').attr('src', returnData[1]));
               $('#random-item').append($('<p>').html(returnData[2]));
+            } else if (returnData[0] === 3) {
+              $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
+              $('#random-item').append($('<p>').html(returnData[2]))
             }
           });
         });
