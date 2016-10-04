@@ -22,7 +22,8 @@
      <% when 4 %>
       <iframe id="player" type="text/html" width="640" height="390"
         src="<%= @media[1].sub! 'watch?v=', 'embed/' %>" frameborder="0"></iframe>
-
+     <% when 5 %>
+      <iframe src="https://embed.<%= @media[1].sub! 'https://play.', '' %>" frameborder="0" allowtransparency="true"></iframe>
    <% end %>
  <% end %>
 

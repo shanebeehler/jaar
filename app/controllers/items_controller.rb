@@ -78,6 +78,8 @@ class ItemsController < ApplicationController
     when "3" #If user selects 'video'
       params.require(:item).permit(:type_id, :type_data, :comment)
     when "4"
+      params.require(:item).permit(:type_id, :comment)
+    when "5"
       params.require(:item).permit(:type_id, :comment)  
     end
 
