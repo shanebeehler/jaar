@@ -1,3 +1,4 @@
+
 <h1><%= @jar.name %> Jaar </h1>
 
  <h4 class="random"><%= link_to "New Randon Note", jar_path(@jar), id: 'refresh' %></h4>
@@ -18,6 +19,10 @@
      <% when 3 %>
        <%= video_tag @media[1], controls: true %>
        <p><%= @media[2] %></p>
+     <% when 4 %>
+      <iframe id="player" type="text/html" width="640" height="390"
+        src="<%= @media[1].sub! 'watch?v=', 'embed/' %>" frameborder="0"></iframe>
+
    <% end %>
  <% end %>
 

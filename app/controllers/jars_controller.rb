@@ -110,6 +110,8 @@ class JarsController < ApplicationController
         return [2, random_item.type_data.url, random_item.comment]
       when 3
         return [3, random_item.type_data.url, random_item.comment]
+      when 4
+        return [4, random_item.comment]
      end
    end
   end

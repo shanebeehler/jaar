@@ -33,6 +33,10 @@ $(function () {
             } else if (returnData[0] === 3) {
               $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
               $('#random-item').append($('<p>').html(returnData[2]))
+            } else if (returnData[0] === 4) {
+              var youtubeLink = $(returnData[1]).replace('watch?v=', 'embed/');
+              $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', youtubeLink));
+
             }
           });
         });
@@ -89,7 +93,7 @@ $(function () {
   $('.modal-content').on('click', function(event){
     event.stopPropagation()
   })
-  // 
+  //
   // $('.jar').mouseenter(function(){
   //   $(this).animate({
   //     width: '+=20'
