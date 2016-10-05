@@ -62,6 +62,21 @@ $(function () {
           });
         });
 
+        // Delete the current memory
+        $('#item-delete').on('click', function(event) {
+          event.preventDefault()
+          $.ajax({
+            url: $(this).attr('href'),
+            method: 'DELETE',
+            data: {},
+            dataType: 'html'
+          }).done(function(){
+            alert("Item was succesfully deleted.")
+            $('#refresh').trigger('click')
+          })
+        })
+
+
         // Add new item to jar
         $('#new').on('click', function(event){
           event.preventDefault();

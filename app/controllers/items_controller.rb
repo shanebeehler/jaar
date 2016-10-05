@@ -58,7 +58,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
 
-    redirect_to jar_items_path
+    redirect_to root_path
   end
 
   private
@@ -80,7 +80,7 @@ class ItemsController < ApplicationController
     when "4"
       params.require(:item).permit(:type_id, :comment)
     when "5"
-      params.require(:item).permit(:type_id, :comment)  
+      params.require(:item).permit(:type_id, :comment)
     end
 
 
