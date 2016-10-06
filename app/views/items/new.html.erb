@@ -1,3 +1,14 @@
-<h1>NEW ITEM</h1>
+<h1>New Memory</h1>
 
-<%= render 'form' %>
+<div class="form-selector">
+  <button href="/render_form" value="1" class="form-button" id='<%= @jar.id %>'>Text</button>
+  <button href="/render_form" value="2" class="form-button" id='<%= @jar.id %>'>Image</button>
+  <button href="/render_form" value="3" class="form-button" id='<%= @jar.id %>'>Video</button>
+  <button href="/render_form" value="4" class="form-button" id='<%= @jar.id %>'>Youtube</button>
+  <button href="/render_form" value="5" class="form-button" id='<%= @jar.id %>'>Spotify</button>
+</div>
+
+
+<div class="form-render-field">
+
+</div>
