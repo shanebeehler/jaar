@@ -71,13 +71,14 @@ color: white;
  position: relative;
 padding: 75px;
 // padding-top: 350px;
- width: 50%;
- left: 50%;
+ width: 70%;
  height: 100%;
- margin-left: -25%;
+margin: auto;
  // top: -10px;
- background-image: image-url('jar3.png');
- background-position:50% 45%;
+ background-image: image-url('jar_purple.png');
+ background-position:30% 45%;
+ background-size: 96%;
+ background-repeat: no-repeat;
    overflow: scroll;
 }
 
