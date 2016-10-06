@@ -11,15 +11,21 @@ right: 160px;
 
 .jar{
  height: 230px;
- width: 160px;
-  background-size: cover;
-  display: inline-block;
-  padding-top: 10px;
-  margin-left: 22px;
-  margin-top: 15px;
-  background-image: image-url('jar_purple.png');
-  position: relative;
+ width: 120px;
+background-size: cover;
+display: inline-block;
+padding-top: 10px;
+margin-left: 22px;
+margin-top: 15px;
+width: 160px;
+background-size: cover;
+display: inline-block;
+margin-top: 15px;
+background-image: image-url('jar_purple.png');
+position: relative;
 }
+
+
 
 body{
  margin: auto;
@@ -48,13 +54,14 @@ color: white;
 // position: relative;
 }
 
-.label{
-  width: 2em;
-  float: left;
-  text-align: right;
-  // margin-right: 0.5em;
-  display: block;
-}
+// .label{
+//   width: 2em;
+//   float: left;
+//   text-align: right;
+//   // margin-right: 0.5em;
+//   display: block;
+//   padding-bottom: 50px;
+// }
 
 
 .modal {
@@ -64,7 +71,7 @@ color: white;
  height: 100%;
  background: rgba(0, 0, 0, 0.5);
  top: 0;
-
+overflow: scroll;
 }
 
 .modal-content {
@@ -75,10 +82,16 @@ padding: 75px;
  height: 100%;
 margin: auto;
  // top: -10px;
+
+ background-size: contain;
+ overflow:  scroll;
+background-repeat: no-repeat;
+
  background-image: image-url('jar_purple.png');
  background-position:30% 45%;
  background-size: 96%;
  background-repeat: no-repeat;
+
 }
 
 .jar > h3 > a {
@@ -94,6 +107,7 @@ margin: auto;
 text-align: center;
   line-height: 7.55rem;
 
+
 }
 
 .alerts {
@@ -107,17 +121,27 @@ p {
 }
 
 .modal-content > h1 {
-  color: #8e6b7c;
+  // margin-top: 100px;
+  // position: fixed;
+  // margin-right: 30%;
+  color: pink;
+  margin-top: 16px;
   font-weight: bolder;
+padding-bottom: 45;
 }
 
 .modal-content > #refresh {
-color: black;
+color: pink;
 }
 
 #random-item > p {
   color: black;
-  font-size: 30px;
+  font-size: 25px;
+  margin-top: 30px;
+  background-color: #B390B2;
+  margin-right: 15px;
+  padding: 10px;
+
 }
 
 .media {
@@ -129,11 +153,12 @@ color: black;
   display: block;
   width: 70%;
   margin: auto;
+
 }
 
 .modal-content > video,
 .modal-content > image {
-  width: 320px;
+  width: 300px;
   height: 240px;
 }
 
@@ -145,34 +170,38 @@ color: black;
   text-align: center;
   color: blue;
 
+
 }
 
 iframe {
   display: block;
-  margin: auto;
-  width: 100%;
-
+  margin-left: 30px;
+  width: 90%;
+  height: 320px;
 }
 h4 a{
   color: orange;
 }
 
-
  .random {
   // overflow: scroll;
   margin-top: 60px;
   text-align: center;
+
 }
 
 .jar-links a{
-  color: red;
+  color: green;
 
 }
+
 .jar-links li{
-  color: red;
+  color: green;
   list-style: none;
-    display: inline;
-  margin-left: 5px;
+  display: inline;
+  margin-left: 70px;
+  // text-align: center;
+  // padding-left: px;
 }
 .empty-jar{
   text-align: center;
@@ -196,7 +225,6 @@ h4 a{
   margin-top: 2.5rem;
   margin-bottom: 2rem;
 }
-
 
 #new_jar {
   margin-top: 56px;

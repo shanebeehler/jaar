@@ -2,7 +2,9 @@ $(function () {
 
   function upload() {
       $('#fileupload').fileupload({
+          replaceFileInput:false,
           dataType: 'json',
+
           add: function (e, data) {
               data.context = $('<button/>').text('Upload')
                   .appendTo($('.form-render-field'))
