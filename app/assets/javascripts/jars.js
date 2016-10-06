@@ -57,6 +57,10 @@ $(function () {
       event.preventDefault();
     });
 
+    $('.jar h3').textfill({
+          explicitWidth: 70, innerTag: 'a', maxFontPixels: 15,
+    });
+
     // Renders modal
     $('.jar').on('click', function(event) {
       $.ajax({
