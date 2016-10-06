@@ -107,13 +107,8 @@ p {
 }
 
 .modal-content > h1 {
-  position: fixed;
-  margin-right: 30%;
   color: #8e6b7c;
-  margin-top: -17px;
   font-weight: bolder;
-padding-bottom: 45;
-
 }
 
 .modal-content > #refresh {
@@ -198,11 +193,35 @@ h4 a{
 }
 
 .form-selector{
-
-  margin-top: 40px;
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 
 #new_jar {
   margin-top: 56px;
+}
+
+#new-mem-title {
+  margin-top: 4%;
+}
+
+.form-render-field {
+  margin-top: 3rem;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+#fileupload {
+  width: 30%
+}
+
+.form-render-field > button {
+  border: 1px solid white;
+  padding: 0.5rem;
+  width: 12%;
+  background-color: #352B24;
+  color: white;
+  border-radius: 5px;
 }
