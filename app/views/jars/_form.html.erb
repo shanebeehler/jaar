@@ -1,7 +1,6 @@
 <%= form_for jar do |f| %>
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: "Jar Name..." %>
   </div>
   <div class="field">
     <%= f.submit id: 'update-jar' %>
