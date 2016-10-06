@@ -17,4 +17,6 @@
 //= require jquery-fileupload/basic
 //= require textfill.js
 //= require jars.js
+//= require_tree
+//= require turbolinks
 $(function(){ $(document).foundation(); });

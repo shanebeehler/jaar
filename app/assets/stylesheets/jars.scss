@@ -11,14 +11,14 @@ right: 160px;
 
 .jar{
  height: 230px;
- width: 120px;
-background-size: cover;
-display: inline-block;
-padding-top: 10px;
-margin-left: 22px;
-margin-top: 15px;
-background-image: image-url('jar3.png');
-position: relative;
+ width: 160px;
+  background-size: cover;
+  display: inline-block;
+  padding-top: 10px;
+  margin-left: 22px;
+  margin-top: 15px;
+  background-image: image-url('jar_purple.png');
+  position: relative;
 }
 
 body{
@@ -92,7 +92,7 @@ padding: 75px;
 
 .jar > h3 {
 text-align: center;
-  line-height: 9rem;
+  line-height: 7.55rem;
 
 }
 
@@ -192,4 +192,8 @@ h4 a{
   background-color: #7192c6;
   color: white;
   border-radius: 5px;
+}
+
+#new_jar {
+  margin-top: 56px;
 }
