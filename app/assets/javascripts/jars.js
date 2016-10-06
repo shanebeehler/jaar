@@ -2,7 +2,9 @@ $(function () {
 
   function upload() {
       $('#fileupload').fileupload({
+          replaceFileInput:false,
           dataType: 'json',
+
           add: function (e, data) {
               data.context = $('<button/>').text('Upload')
                   .appendTo($('#new-item-modal > .modal-content'))
@@ -31,7 +33,7 @@ $(function () {
         });
       })
     }
-    
+
   function form_buttons() {
     // This is the beginning of add item modal
     $('.form-button').on('click', function(event) {
