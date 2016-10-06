@@ -1,0 +1,9 @@
+<%= form_for [:jar, @item] do |f| %>
+  <div class="field">
+    <%= f.label :type_data, 'Upload your video here' %>
+    <%= f.file_field :type_data, id: 'fileupload' %>
+  </div>
+  <div class="action">
+    <%= f.submit "Submit Video", id: 'submit-new-mem' %>
+  </div>
+<% end %>

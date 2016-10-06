@@ -18,6 +18,21 @@ $(function () {
       });
     };
 
+  function form_buttons() {
+    // This is the beginning of add item modal
+    $('.form-button').on('click', function(event) {
+      event.preventDefault()
+      $.ajax({
+        url: $(this).attr('href'),
+        method: 'GET',
+        data: {value: $(this).attr('value'), jar: $(this).attr('id')},
+        dataType: 'html'
+      }).done(function(returnData){
+        console.log(returnData);
+      });
+    });
+  }
+
   function listenToJars() {
 
     $('.jar a').on('click', function(event) {
@@ -65,6 +80,21 @@ $(function () {
           });
         });
 
+        // Delete the current memory
+        $('#item-delete').on('click', function(event) {
+          event.preventDefault()
+          $.ajax({
+            url: $(this).attr('href'),
+            method: 'DELETE',
+            data: {},
+            dataType: 'html'
+          }).done(function(){
+            alert("Item was succesfully deleted.")
+            $('#refresh').trigger('click')
+          })
+        })
+
+
         // Add new item to jar
         $('#new').on('click', function(event){
           event.preventDefault();
@@ -76,10 +106,10 @@ $(function () {
           }).done(function(returnData){
             $('#new-item-modal > .modal-content').html(returnData)
             upload()
+            form_buttons()
             $('#new-item-modal').fadeIn()
           });
         });
-
 
         // Edit a jar info
         $('#edit').on('click', function(event){
@@ -106,6 +136,7 @@ $(function () {
             });
           });
         });
+
       });
     });
   }
@@ -190,4 +221,4 @@ $(function () {
       listenToJars();
     });
   });
- });
+});

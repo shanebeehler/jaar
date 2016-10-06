@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resource :users
-  root 'jars#index'
+  root 'pages#landing'
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :password_resets, only: [:create, :edit, :update]
 
@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
   post 'close_jar/:id' => 'jars#close_jar'
+  get 'render_form' => 'items#render_form'
 
 end

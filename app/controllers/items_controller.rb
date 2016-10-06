@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action do
+  before_action except: :render_form do
     @jar = Jar.find(params[:jar_id])
   end
 
@@ -58,7 +58,23 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
 
-    redirect_to jar_items_path
+    redirect_to root_path
+  end
+
+  def render_form
+    form_id = params['value']
+    case form_id
+    when "1"
+      render partial: 'text_mem',  jar: Jar.find(params['jar'])
+    when "2"
+      render '_image_mem', :jar => params['jar']
+    when "3"
+      render '_video_mem', jar: params['jar']
+    when "4"
+      render '_youtube_mem', jar: params['jar']
+    when "5"
+      render '_spotify_mem', jar: params['jar']
+    end
   end
 
   private
@@ -80,7 +96,7 @@ class ItemsController < ApplicationController
     when "4"
       params.require(:item).permit(:type_id, :comment)
     when "5"
-      params.require(:item).permit(:type_id, :comment)  
+      params.require(:item).permit(:type_id, :comment)
     end
 
 
