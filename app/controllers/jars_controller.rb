@@ -105,15 +105,15 @@ class JarsController < ApplicationController
      random_item = jar.items.sample
      case random_item.type_id
       when 1
-        return [1, random_item.comment]
+        return [1, random_item.comment, random_item.id]
       when 2
-        return [2, random_item.type_data.url, random_item.comment]
+        return [2, random_item.type_data.url, random_item.comment, random_item.id]
       when 3
-        return [3, random_item.type_data.url, random_item.comment]
+        return [3, random_item.type_data.url, random_item.comment, random_item.id]
       when 4
-        return [4, random_item.comment]
+        return [4, random_item.comment, random_item.id]
       when 5
-        return [5, random_item.comment]
+        return [5, random_item.comment, random_item.id]
      end
    end
   end
