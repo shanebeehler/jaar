@@ -127,14 +127,14 @@ p {
 }
 
 .modal-content > h1 {
-  // margin-top: 100px;
-
-  // position: fixed;
-  // margin-right: 30%;
   color: pink;
   margin-top: 16px;
   font-weight: bolder;
-padding-bottom: 45;
+  padding: 0.5rem 0;
+  background-color: white;
+
+  width: 85%;
+  margin: auto;
 }
 
 .modal-content > #refresh {
