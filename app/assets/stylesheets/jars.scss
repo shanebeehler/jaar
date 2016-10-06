@@ -77,7 +77,7 @@ overflow: scroll;
 
 .modal-content {
  position: relative;
-padding: 75px;
+padding: 6em;
 // padding-top: 350px;
  width: 70%;
  height: 100%;
@@ -183,10 +183,10 @@ color: pink;
 
 iframe {
   display: block;
-  margin-left: 30px;
-  width: 90%;
-  height: 320px;
   border: none;
+  margin: auto;
+  width: 53.33333em;
+  height: 30em;
 }
 h4 a{
   color: orange;
