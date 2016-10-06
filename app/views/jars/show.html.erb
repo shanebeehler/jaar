@@ -2,8 +2,6 @@
 
 <h1><span><%= @jar.name %></span></h1>
 
-<h1><%= @jar.name %> Jaar </h1>
-
 
  <h4 class="random"><%= link_to "New Randon Memory", jar_path(@jar), id: 'refresh' %></h4>
 
@@ -31,24 +29,21 @@
 </div>
 
 <% if @jar.name == 'General' %>
-    <%= link_to 'Add New Item to Jar', new_jar_item_path(@jar), id: 'new' %>
-<% else %>
-<<<<<<< HEAD
-<ul class="jar-links">
-  <li><%= link_to 'Add New Item to Jar |', new_jar_item_path(@jar), id: 'new' %></li>
-
-<li><%= link_to 'Edit Jaar Information |', edit_jar_path, id: 'edit' %></li>
-
-<li><%= link_to 'Close Jar', action: 'close_jar'  %></li>
+<ul class="jar-links-general">
+    <li><%= link_to 'Add New Item to Jar', new_jar_item_path(@jar), id: 'new' %></li>
 </ul>
+<% else %>
+  <% if @jar.closed %>
+     <p>
+       This jar is closed
+     </p>
+  <% else %>
+    <ul class="jar-links">
+      <li><%= link_to 'Add New Item to Jar |', new_jar_item_path(@jar), id: 'new' %></li>
 
-    <% if @jar.closed %>
-       <p>
-         This jar is closed
-       </p>
-    <% else %>
-      <%= link_to 'Add New Item to Jar', new_jar_item_path(@jar), id: 'new' %>
-      <%= link_to 'Edit Jaar Information', edit_jar_path, id: 'edit' %>
-      <%= link_to 'Close Jar', action: 'close_jar'  %>
-    <% end %>
+    <li><%= link_to 'Edit Jaar Information |', edit_jar_path, id: 'edit' %></li>
+
+    <li><%= link_to 'Close Jar', action: 'close_jar'  %></li>
+    </ul>
+  <% end %>
 <% end %>
