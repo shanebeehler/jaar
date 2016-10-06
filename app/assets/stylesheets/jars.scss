@@ -235,7 +235,7 @@ h4 a{
 }
 
 #new_jar {
-  margin-top: 56px;
+  margin-top: 1rem;
 }
 
 #new-mem-title {
@@ -263,12 +263,21 @@ h4 a{
 }
 
 #jar_name {
-  width: 70%;
-  margin: auto;
-  margin-bottom: 3rem;
-  margin-top: -0.5rem;
+  position: absolute;
+      width: 70%;
+      top: 30%;
+      left: 4.5rem;
 }
 
 #update-jar {
   margin-left: 40%;
+}
+
+#new-jar-name-label {
+  position: relative;
+  background-color: white;
+  height: 6rem;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 1rem;
 }
