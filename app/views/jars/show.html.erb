@@ -27,7 +27,6 @@
        <% when 5 %>
         <iframe src="https://embed.<%= @media[1].sub! 'https://play.', '' %>" frameborder="0" allowtransparency="true"></iframe>
    <% end %>
-   <%= link_to 'Delete This Memory', jar_item_path(@jar, @media.last), method: :delete, id: 'item-delete' %>
  <% end %>
 
 
