@@ -18,8 +18,10 @@ padding-top: 10px;
 margin-left: 22px;
 margin-top: 15px;
 background-image: image-url('jar3.png');
-position: relative;
+
 }
+
+
 
 body{
  margin: auto;
@@ -48,13 +50,14 @@ color: white;
 // position: relative;
 }
 
-.label{
-  width: 2em;
-  float: left;
-  text-align: right;
-  // margin-right: 0.5em;
-  display: block;
-}
+// .label{
+//   width: 2em;
+//   float: left;
+//   text-align: right;
+//   // margin-right: 0.5em;
+//   display: block;
+//   padding-bottom: 50px;
+// }
 
 
 .modal {
@@ -77,8 +80,9 @@ padding: 75px;
  margin-left: -25%;
  // top: -10px;
  background-image: image-url('jar3.png');
- background-position:50% 45%;
-   overflow: scroll;
+ background-size: contain;
+ overflow: scroll;
+background-repeat: no-repeat;
 }
 
 .jar > h3 > a {
@@ -94,6 +98,7 @@ padding: 75px;
 text-align: center;
   line-height: 9rem;
 
+
 }
 
 .alerts {
@@ -107,7 +112,7 @@ p {
 }
 
 .modal-content > h1 {
-  color: #8e6b7c;
+  color: pink;
   margin-top: 80px;
   font-weight: bolder;
 
@@ -115,12 +120,12 @@ p {
 }
 
 .modal-content > #refresh {
-color: black;
+color: pink;
 }
 
 #random-item > p {
-  color: black;
-  font-size: 30px;
+  color: orange;
+  font-size: 40px;
 }
 
 .media {
