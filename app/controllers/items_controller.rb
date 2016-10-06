@@ -30,9 +30,13 @@ class ItemsController < ApplicationController
     @item.jar = @jar
 
     if @item.save
-      respond_to do |f|
+      if request.xhr?
+        respond_to do |f|
         f.json { render json: @item }
-        f.html { redirect_to jar_path(@jar) }
+        f.html { @item }
+        end
+      else
+        redirect_to jar_path(@jar)
       end
 
     else
@@ -62,18 +66,21 @@ class ItemsController < ApplicationController
   end
 
   def render_form
+    @item = Item.new
+    @jar = Jar.find(params['jar'])
+    @type_id = params['value']
     form_id = params['value']
     case form_id
     when "1"
-      render partial: 'text_mem',  jar: Jar.find(params['jar'])
+      render '_text_mem', layout: false
     when "2"
-      render '_image_mem', :jar => params['jar']
+      render '_image_mem', layout: false
     when "3"
-      render '_video_mem', jar: params['jar']
+      render '_video_mem', layout: false
     when "4"
-      render '_youtube_mem', jar: params['jar']
+      render '_youtube_mem', layout: false
     when "5"
-      render '_spotify_mem', jar: params['jar']
+      render '_spotify_mem', layout: false
     end
   end
 

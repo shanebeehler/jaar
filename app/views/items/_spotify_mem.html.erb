@@ -1,9 +1,10 @@
-<%= form_for [:jar, @item] do |f| %>
+<%= form_for [@jar, @item] do |f| %>
+<%= f.hidden_field :type_id, {value: @type_id} %>
   <div class="comment-field">
-    <%= f.label :comment %>
+    <%= f.label :comment, "Please provide URL" %>
     <%= f.text_field :comment %>
   </div>
   <div class="action">
-    <%= f.submit "Submit Video", id: 'submit-new-mem' %>
+    <%= f.submit "Submit Link", id: 'submit-new-mem' %>
   </div>
 <% end %>

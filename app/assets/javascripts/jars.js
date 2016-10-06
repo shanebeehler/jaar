@@ -16,8 +16,22 @@ $(function () {
               $('#new-item-modal').fadeOut();
           }
       });
-    };
+  };
 
+    function submitForm() {
+      $('.new_item').submit(function(event) {
+        event.preventDefault()
+        $.ajax({
+          url: $(this).attr('action'),
+          method: 'POST',
+          data: $(this).serialize(),
+          dataType: 'json'
+        }).done(function() {
+          $('#new-item-modal').fadeOut();
+        });
+      })
+    }
+    
   function form_buttons() {
     // This is the beginning of add item modal
     $('.form-button').on('click', function(event) {
@@ -28,7 +42,9 @@ $(function () {
         data: {value: $(this).attr('value'), jar: $(this).attr('id')},
         dataType: 'html'
       }).done(function(returnData){
-        console.log(returnData);
+        $('.form-render-field').html(returnData);
+        upload()
+        submitForm()
       });
     });
   }
@@ -107,7 +123,6 @@ $(function () {
             dataType: 'html'
           }).done(function(returnData){
             $('#new-item-modal > .modal-content').html(returnData)
-            upload()
             form_buttons()
             $('#new-item-modal').fadeIn()
           });
