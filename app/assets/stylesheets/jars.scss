@@ -122,6 +122,7 @@ p {
 
 .modal-content > h1 {
   // margin-top: 100px;
+
   // position: fixed;
   // margin-right: 30%;
   color: pink;
@@ -252,4 +253,15 @@ h4 a{
   background-color: #352B24;
   color: white;
   border-radius: 5px;
+}
+
+#jar_name {
+  width: 70%;
+  margin: auto;
+  margin-bottom: 3rem;
+  margin-top: -0.5rem;
+}
+
+#update-jar {
+  margin-left: 40%;
 }
