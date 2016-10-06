@@ -87,7 +87,7 @@ margin: auto;
  overflow:  scroll;
 background-repeat: no-repeat;
 
- background-image: image-url('jar_purple.png');
+ background-image: image-url('purple_jar_nolabel.png');
  background-position:30% 45%;
  background-size: 96%;
  background-repeat: no-repeat;
@@ -108,6 +108,11 @@ text-align: center;
   line-height: 7.55rem;
 
 
+}
+
+.modal-form {
+  margin: 4em auto;
+  width: 70%
 }
 
 .alerts {
@@ -179,6 +184,7 @@ iframe {
   margin-left: 30px;
   width: 90%;
   height: 320px;
+  border: none;
 }
 h4 a{
   color: orange;
