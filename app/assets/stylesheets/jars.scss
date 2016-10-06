@@ -79,7 +79,6 @@ margin: auto;
  background-position:30% 45%;
  background-size: 96%;
  background-repeat: no-repeat;
-   overflow: scroll;
 }
 
 .jar > h3 > a {
@@ -108,10 +107,12 @@ p {
 }
 
 .modal-content > h1 {
+  position: fixed;
+  margin-right: 30%;
   color: #8e6b7c;
-  margin-top: 80px;
+  margin-top: -17px;
   font-weight: bolder;
-
+padding-bottom: 45;
 
 }
 
@@ -188,12 +189,19 @@ h4 a{
 .form-button {
   display: inline-block;
   border: 1px solid white;
-  padding: 0.25rem;
+  padding: 1rem;
   width: 19%;
-  background-color: #7192c6;
+  background-color: #352B24;
   color: white;
   border-radius: 5px;
+
 }
+
+.form-selector{
+
+  margin-top: 40px;
+}
+
 
 #new_jar {
   margin-top: 56px;
