@@ -57,6 +57,10 @@ $(function () {
       event.preventDefault();
     });
 
+    $('.jar h3').textfill({
+          explicitWidth: 70, innerTag: 'a', maxFontPixels: 15,
+    });
+
     // Renders modal
     $('.jar').on('click', function(event) {
       $.ajax({
@@ -139,7 +143,7 @@ $(function () {
             data: {},
             dataType: 'html'
           }).done(function(returnData){
-            $('#jar-modal > .modal-content > h1').html(returnData);
+            $('#jar-modal > .modal-content').html(returnData);
           }).done(function(){
             $('.edit_jar').on('submit', function(event){
               event.preventDefault();
@@ -147,10 +151,10 @@ $(function () {
                 url: $(this).attr('action'),
                 method:'PUT',
                 data: $(this).serialize(),
-                dataType: 'json'
+                dataType: 'html'
               }).done(function(returnData){
-                $('#jar-modal > .modal-content > h1').html(returnData['name']);
-                $('#jar-' + returnData['id'] +' a').html(returnData['name']);
+                $('#jar-modal > .modal-content').html(returnData);
+
               });
             });
           });

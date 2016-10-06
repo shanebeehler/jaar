@@ -47,10 +47,10 @@ class JarsController < ApplicationController
 
   def update
     @jar = Jar.find(params[:id])
-
+    @media = get_random_item(@jar)
     if @jar.update(jar_params)
       if request.xhr?
-        render json: @jar
+        render 'show', layout: false
       else
         redirect_to jars_path
       end
