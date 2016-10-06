@@ -55,7 +55,6 @@ $(function () {
       event.preventDefault();
     });
 
-
     // Renders modal
     $('.jar').on('click', function(event) {
       $.ajax({
@@ -66,6 +65,10 @@ $(function () {
       }).done(function(responseData) {
         $('#jar-modal > .modal-content').html(responseData);
         $('#jar-modal').fadeIn()
+            $('.modal-content h1').textfill({
+                  explicitWidth: 250
+            });
+
       }).done(function(){
 
         //  Set-up listeners for modal
@@ -86,9 +89,11 @@ $(function () {
               $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
               $('#random-item').append($('<p>').html(returnData[2]))
             } else if (returnData[0] === 4) {
-              var youtubeLink = $(returnData[1]).replace('watch?v=', 'embed/');
+              var youtubeLink = (returnData[1]).replace('watch?v=', 'embed/');
               $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', youtubeLink));
-
+            } else if (returnData[0] === 5) {
+              var spotifyLink = (returnData[1]).replace('https://play.', '');
+              $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', 'https://embed.' + spotifyLink));
             }
           });
         });

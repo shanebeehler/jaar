@@ -3,7 +3,6 @@ color: white;
 text-align: center;
 padding-top: 10px;
 right: 160px;
-
 }
 //
 // .border-box{
@@ -18,37 +17,35 @@ display: inline-block;
 padding-top: 10px;
 margin-left: 22px;
 margin-top: 15px;
- background-image: image-url('jar.png');
-
+background-image: image-url('jar3.png');
+position: relative;
 }
-
 
 body{
  margin: auto;
- background-color: #7192c6
 }
-
-
 
 .collection{
  box-sizing: content-box;
- height: 625px;
+ height: 630px;
  width: 80%;
  border-radius: 10px;
  left: 30%;
  padding-top: 10px;
  margin: auto;
 }
+
+
 .shelf{
-height: 43%;
+height: 41%;
 border-radius: 10px;
 border: 1px white solid;
-display: block;
+// display: block;
 background-image: image-url('bookshelf.jpg');
 background-size: cover;
-font-size:30px;
+// font-size:30px;
 color: white;
-
+// position: relative;
 }
 
 .label{
@@ -67,6 +64,7 @@ color: white;
  height: 100%;
  background: rgba(0, 0, 0, 0.5);
  top: 0;
+
 }
 
 .modal-content {
@@ -78,18 +76,24 @@ padding: 75px;
  height: 100%;
  margin-left: -25%;
  // top: -10px;
- background-image: image-url('jar.png');
+ background-image: image-url('jar3.png');
  background-position:50% 45%;
+   overflow: scroll;
 }
+
 .jar > h3 > a {
   color: black;
   text-decoration: none;
   font-size: 25px;
+// position: absolute;
+// left: -25%;
+
 }
 
 .jar > h3 {
 text-align: center;
   line-height: 9rem;
+
 }
 
 .alerts {
@@ -103,15 +107,20 @@ p {
 }
 
 .modal-content > h1 {
-  color: yellow;
-}
-.modal-content > #refresh {
-  color: yellow;
+  color: #8e6b7c;
+  margin-top: 80px;
+  font-weight: bolder;
+
 
 }
+
+.modal-content > #refresh {
+color: black;
+}
+
 #random-item > p {
   color: black;
-  font-size: 45px;
+  font-size: 30px;
 }
 
 .media {
@@ -138,12 +147,41 @@ p {
   display: block;
   text-align: center;
   color: blue;
+
 }
 
 iframe {
   display: block;
   margin: auto;
   width: 100%;
+
+}
+h4 a{
+  color: orange;
+}
+
+
+ .random {
+  // overflow: scroll;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.jar-links a{
+  color: red;
+
+}
+.jar-links li{
+  color: red;
+  list-style: none;
+    display: inline;
+  margin-left: 5px;
+}
+.empty-jar{
+  text-align: center;
+}
+#new-item{
+  margin-top: 40px;
 }
 
 .form-button {
