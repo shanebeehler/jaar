@@ -1,5 +1,5 @@
 class Jar < ApplicationRecord
-  has_many :items
+  has_many :items, dependent: :destroy
   belongs_to :user
 
   scope :newest_first, -> {order('created_at DESC')}

@@ -17,7 +17,7 @@
 <div class="field">
   <%= f.label :type_id %>
   <%= f.select(:type_id) do %>
-    <% [['Please select an option', 0], ['Text', 1], ['Image', 2], ['Video', 3]].each do |type| %>
+    <% [['Please select an option', 0], ['Text', 1], ['Image', 2], ['Video', 3], ['Youtube Link', 4], ['Spotify Link', 5]].each do |type| %>
       <%= content_tag(:option, type.first, value: type.last) %>
     <% end %>
   <% end %>
@@ -25,7 +25,7 @@
 
 <div class="field">
   <%= f.label :type_data, 'Upload a video or image' %>
-  <%= f.file_field :type_data %>
+  <%= f.file_field :type_data, id: 'fileupload' %>
 </div>
 <div class="comment-field">
   <%= f.label :comment %>

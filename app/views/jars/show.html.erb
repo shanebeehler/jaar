@@ -1,4 +1,5 @@
-<h1><%= @jar.name %> Jaar </h1>
+
+<h1><span><%= @jar.name %></span></h1>
 
  <h4 class="random"><%= link_to "New Randon Note", jar_path(@jar), id: 'refresh' %></h4>
 
@@ -7,7 +8,7 @@
 
 
  <% if @media == 'empty' %>
-   <p>your jar is empty. Go ahead and add something!</p>
+   <p class="empty-jar">your jar is empty. Go ahead and add something!</p>
  <% else %>
    <% case @media[0]%>
      <% when 1 %>
@@ -18,6 +19,11 @@
      <% when 3 %>
        <%= video_tag @media[1], controls: true %>
        <p><%= @media[2] %></p>
+     <% when 4 %>
+      <iframe id="player" type="text/html" width="640" height="390"
+        src="<%= @media[1].sub! 'watch?v=', 'embed/' %>" frameborder="0"></iframe>
+     <% when 5 %>
+      <iframe src="https://embed.<%= @media[1].sub! 'https://play.', '' %>" frameborder="0" allowtransparency="true"></iframe>
    <% end %>
  <% end %>
 
@@ -28,9 +34,11 @@
      This jar is closed
    </p>
 <% else %>
-  <%= button_to 'Add New Item to Jar', new_jar_item_path(@jar) %>
+<ul class="jar-links">
+  <li><%= link_to 'Add New Item to Jar |', new_jar_item_path(@jar), id: 'new' %></li>
 
-  <%= link_to 'Edit Jaar Information', edit_jar_path, id: 'edit' %>
+<li><%= link_to 'Edit Jaar Information |', edit_jar_path, id: 'edit' %></li>
 
-  <%= button_to 'Close Jar', action: 'close_jar'  %>
+<li><%= link_to 'Close Jar', action: 'close_jar'  %></li>
+</ul>
 <% end %>

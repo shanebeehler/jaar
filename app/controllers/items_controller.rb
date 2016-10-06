@@ -14,6 +14,9 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    if request.xhr?
+      render 'new', :layout => false
+    end
   end
 
   def create
@@ -27,8 +30,11 @@ class ItemsController < ApplicationController
     @item.jar = @jar
 
     if @item.save
-      # redirect_to [@jar, @item]
-      redirect_to jar_path(@jar)
+      respond_to do |f|
+        f.json { render json: @item }
+        f.html { redirect_to jar_path(@jar) }
+      end
+
     else
       render :new
     end
@@ -71,7 +77,13 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:type_id, :type_data, :comment)
     when "3" #If user selects 'video'
       params.require(:item).permit(:type_id, :type_data, :comment)
+    when "4"
+      params.require(:item).permit(:type_id, :comment)
+    when "5"
+      params.require(:item).permit(:type_id, :comment)  
     end
+
+
   end
 
 end

@@ -34,6 +34,8 @@ gem 'sorcery'
 gem 'figaro'
 
 gem 'paperclip-av-transcoder'
+
+gem "jquery-fileupload-rails"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

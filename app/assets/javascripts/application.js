@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.textfill.min
 //= require foundation
-//= require turbolinks
-//= require_tree .
-
+//= require jquery-fileupload/basic
+//= require textfill.js
+//= require jars.js
 $(function(){ $(document).foundation(); });

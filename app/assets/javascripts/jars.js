@@ -1,13 +1,31 @@
 $(function () {
 
+  function upload() {
+      $('#fileupload').fileupload({
+          dataType: 'json',
+          add: function (e, data) {
+              data.context = $('<button/>').text('Upload')
+                  .appendTo($('#new-item-modal > .modal-content'))
+                  .click(function () {
+                      data.context = $('<p/>').text('Uploading...').replaceAll($(this));
+                      data.submit();
+                  });
+          },
+          done: function (e, data) {
+              data.context.text('Upload finished.');
+              $('#new-item-modal').fadeOut();
+          }
+      });
+    };
+
   function listenToJars() {
 
     $('.jar a').on('click', function(event) {
       event.preventDefault();
     });
 
+    // Renders modal
     $('.jar').on('click', function(event) {
-
       $.ajax({
         url: $(this).find('a').attr('href'),
         method: 'GET',
@@ -16,7 +34,13 @@ $(function () {
       }).done(function(responseData) {
         $('#jar-modal > .modal-content').html(responseData);
         $('#jar-modal').fadeIn()
+            $('.modal-content h1').textfill({
+                  explicitWidth: 250
+            });
+
       }).done(function(){
+
+        //  Set-up listeners for modal
         $('#refresh').on('click', function(event){
           event.preventDefault()
           $.ajax({
@@ -33,9 +57,31 @@ $(function () {
             } else if (returnData[0] === 3) {
               $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
               $('#random-item').append($('<p>').html(returnData[2]))
+            } else if (returnData[0] === 4) {
+              var youtubeLink = $(returnData[1]).replace('watch?v=', 'embed/');
+              $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', youtubeLink));
+
             }
           });
         });
+
+        // Add new item to jar
+        $('#new').on('click', function(event){
+          event.preventDefault();
+          $.ajax({
+            url: $(this).attr('href'),
+            method: 'GET',
+            data: {},
+            dataType: 'html'
+          }).done(function(returnData){
+            $('#new-item-modal > .modal-content').html(returnData)
+            upload()
+            $('#new-item-modal').fadeIn()
+          });
+        });
+
+
+        // Edit a jar info
         $('#edit').on('click', function(event){
           event.preventDefault();
           $.ajax({
@@ -55,16 +101,15 @@ $(function () {
                 dataType: 'json'
               }).done(function(returnData){
                 $('#jar-modal > .modal-content > h1').html(returnData['name']);
-                $('#jar-' + returnData['id'] +' a').html(returnData['name'])
+                $('#jar-' + returnData['id'] +' a').html(returnData['name']);
               });
             });
-
-
           });
-        })
+        });
       });
     });
   }
+
 
   $('#new-jar').on('click', function(event) {
     event.preventDefault();
@@ -76,6 +121,10 @@ $(function () {
   $('#new-jar-modal').on('click', function() {
     $('#new-jar-modal').fadeOut();
   });
+
+  $('#new-item-modal').on('click', function() {
+    $('#new-item-modal').fadeOut();
+  })
 
 
   listenToJars()
@@ -89,7 +138,7 @@ $(function () {
   $('.modal-content').on('click', function(event){
     event.stopPropagation()
   })
-  // 
+  //
   // $('.jar').mouseenter(function(){
   //   $(this).animate({
   //     width: '+=20'
