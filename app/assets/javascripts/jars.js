@@ -15,10 +15,30 @@ $(function () {
           },
           done: function (e, data) {
               data.context.text('Upload finished.');
+              renderMemory(data.response()['result']);
               $('#new-item-modal').fadeOut();
           }
       });
   };
+
+  function renderMemory(returnData) {
+    $('#new-item-modal').fadeOut();
+    if (returnData[0] === 1) {
+      $('#random-item').html($('<p>').append(returnData[1]));
+    } else if (returnData[0] === 2) {
+      $('#random-item').html($('<img>').attr('src', returnData[1]));
+      $('#random-item').append($('<p>').html(returnData[2]));
+    } else if (returnData[0] === 3) {
+      $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
+      $('#random-item').append($('<p>').html(returnData[2]))
+    } else if (returnData[0] === 4) {
+      var youtubeLink = (returnData[1]).replace('watch?v=', 'embed/');
+      $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', youtubeLink));
+    } else if (returnData[0] === 5) {
+      var spotifyLink = (returnData[1]).replace('https://play.', '');
+      $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', 'https://embed.' + spotifyLink));
+    }
+  }
 
     function submitForm() {
       $('.new_item').submit(function(event) {
@@ -28,8 +48,8 @@ $(function () {
           method: 'POST',
           data: $(this).serialize(),
           dataType: 'json'
-        }).done(function() {
-          $('#new-item-modal').fadeOut();
+        }).done(function(returnData) {
+          renderMemory(returnData)
         });
       })
     }
@@ -37,7 +57,7 @@ $(function () {
   function form_buttons() {
     // This is the beginning of add item modal
     $('.form-button').on('click', function(event) {
-      event.preventDefault()
+      event.preventDefault();
       $.ajax({
         url: $(this).attr('href'),
         method: 'GET',
@@ -45,8 +65,8 @@ $(function () {
         dataType: 'html'
       }).done(function(returnData){
         $('.form-render-field').html(returnData);
-        upload()
-        submitForm()
+        upload();
+        submitForm();
       });
     });
   }
@@ -82,21 +102,7 @@ $(function () {
             data: {},
             dataType: 'json'
           }).done(function(returnData){
-            if (returnData[0] === 1) {
-              $('#random-item').html($('<p>').append(returnData[1]));
-            } else if (returnData[0] === 2) {
-              $('#random-item').html($('<img>').attr('src', returnData[1]));
-              $('#random-item').append($('<p>').html(returnData[2]));
-            } else if (returnData[0] === 3) {
-              $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
-              $('#random-item').append($('<p>').html(returnData[2]))
-            } else if (returnData[0] === 4) {
-              var youtubeLink = (returnData[1]).replace('watch?v=', 'embed/');
-              $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', youtubeLink));
-            } else if (returnData[0] === 5) {
-              var spotifyLink = (returnData[1]).replace('https://play.', '');
-              $('#random-item').html($('<iframe>').attr('id', 'player').attr('type', 'text/html').attr('src', 'https://embed.' + spotifyLink));
-            }
+            renderMemory(returnData)
           });
         });
 
