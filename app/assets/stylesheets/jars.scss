@@ -215,6 +215,12 @@ h4 a{
   // text-align: center;
   // padding-left: px;
 }
+
+.jar-links-general li,
+.jar-links-general a {
+  color: green;
+  list-style: none;
+}
 .empty-jar{
   text-align: center;
 }
