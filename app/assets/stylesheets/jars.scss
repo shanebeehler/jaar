@@ -132,7 +132,6 @@ p {
   font-weight: bolder;
   padding: 0.5rem 0;
   background-color: white;
-
   width: 85%;
   margin: auto;
 }
@@ -189,8 +188,8 @@ iframe {
   display: block;
   border: none;
   margin: auto;
-  width: 53.33333em;
-  height: 30em;
+  width: 38em;
+  height: 21.375em;
 }
 h4 a{
   color: orange;
@@ -240,7 +239,7 @@ h4 a{
 }
 
 #new_jar {
-  margin-top: 56px;
+  margin-top: 1rem;
 }
 
 #new-mem-title {
@@ -273,12 +272,21 @@ h4 a{
 }
 
 #jar_name {
-  width: 70%;
-  margin: auto;
-  margin-bottom: 3rem;
-  margin-top: -0.5rem;
+  position: absolute;
+      width: 70%;
+      top: 30%;
+      left: 4.5rem;
 }
 
 #update-jar {
   margin-left: 40%;
+}
+
+#new-jar-name-label {
+  position: relative;
+  background-color: white;
+  height: 6rem;
+  width: 85%;
+  margin: auto;
+  margin-bottom: 1rem;
 }
