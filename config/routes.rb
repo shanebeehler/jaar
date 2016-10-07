@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'pages/landing'
   get 'login' => 'user_sessions#new', :as => :login
   post 'logout' => 'user_sessions#destroy', :as => :logout
-  post 'close_jar/:id' => 'jars#close_jar'
+  post 'close_jar/:id' => 'jars#close_jar', :as => :close_jar
   get 'render_form' => 'items#render_form'
 
 end

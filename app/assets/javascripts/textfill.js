@@ -1,7 +1,7 @@
 
 $(function() {
     $('.jar h3').textfill({
-          explicitWidth: 70, innerTag: 'a', maxFontPixels: 15, 
+          explicitWidth: 70, innerTag: 'a', maxFontPixels: 15,
     });
 });
   // var regularFont = $('.jar h3 a').css('font-size')

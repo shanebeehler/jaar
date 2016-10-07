@@ -181,6 +181,10 @@ color: pink;
 
 }
 
+.media > img {
+  margin: auto;
+}
+
 iframe {
   display: block;
   border: none;
@@ -261,6 +265,11 @@ h4 a{
   background-color: #352B24;
   color: white;
   border-radius: 5px;
+}
+
+#close_jar{
+  background: none;
+  display: inline;
 }
 
 #jar_name {
