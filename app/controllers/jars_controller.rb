@@ -9,17 +9,17 @@ class JarsController < ApplicationController
 
   def show
     @jar = Jar.find(params[:id])
-    ensure_user_match
+
     @media = get_random_item(@jar)
 
-    if request.xhr?
+
       respond_to do |f|
         f.html { render 'show', :layout => false }
         f.json do
           render json: @media
         end
       end
-    end
+
 
    end
 
