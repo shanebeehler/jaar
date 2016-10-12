@@ -30,10 +30,22 @@ class ItemsController < ApplicationController
     @item.jar = @jar
 
     if @item.save
+      case @item.type_id
+      when 1
+        @media = [@item.type_id, @item.comment, @item.id]
+      when 2
+        @media = [@item.type_id, @item.type_data.url, @item.comment, @item.id]
+      when 3
+        @media = [@item.type_id, @item.type_data.url, @item.comment, @item.id]
+      when 4
+        @media = [@item.type_id, @item.comment, @item.id]
+      when 5
+        @media = [@item.type_id, @item.comment, @item.id]
+      end
       if request.xhr?
         respond_to do |f|
-        f.json { render json: @item }
-        f.html { @item }
+        f.json { render json: @media }
+        f.html { render jar_path(@jar) }
         end
       else
         redirect_to jar_path(@jar)
