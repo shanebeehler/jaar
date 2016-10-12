@@ -36,6 +36,8 @@ gem 'figaro'
 gem 'paperclip-av-transcoder'
 
 gem "jquery-fileupload-rails"
+
+gem 'aws-sdk', '~> 2.3'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
