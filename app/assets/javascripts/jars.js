@@ -1,4 +1,4 @@
-$(function () {
+  $(function () {
 
   function upload() {
       $('#fileupload').fileupload({
