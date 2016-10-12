@@ -152,11 +152,12 @@ color: pink;
 
 .media {
   width: 90%;
-  margin-left: 30px;
+  margin: auto;
 }
 
 .media > video,
-.media > image, {
+.media > image,
+.media > img {
   display: block;
   width: 70%;
   margin: auto;
@@ -192,7 +193,7 @@ iframe {
   height: 21.375em;
 }
 h4 a{
-  color: orange;
+  color: purple;
 }
 
  .random {
@@ -203,12 +204,12 @@ h4 a{
 }
 
 .jar-links a{
-  color: green;
+  color: purple;
 
 }
 
 .jar-links li{
-  color: green;
+  color: purple;
   list-style: none;
   display: inline;
   margin-left: 70px;
@@ -218,8 +219,9 @@ h4 a{
 
 .jar-links-general li,
 .jar-links-general a {
-  color: green;
+  color: purple;
   list-style: none;
+  text-align: center;
 }
 .empty-jar{
   text-align: center;
