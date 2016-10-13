@@ -88,7 +88,7 @@
 
   def view_shared_jar
     @jar = Jar.find_by(share_token: params[:token])
-
+    @media = get_random_item(@jar)
   end
 
   private
