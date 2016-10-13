@@ -1,4 +1,4 @@
-class JarsController < ApplicationController
+  class JarsController < ApplicationController
   before_action do
     @user = current_user
   end
