@@ -68,6 +68,7 @@
   def close_jar
     @jar = Jar.find(params[:id])
     @jar.closed = true
+    @jar.share_token = SecureRandom.hex
     if @jar.save
       redirect_to jars_path, notice: "Jar has been closed!"
     else
@@ -76,8 +77,6 @@
   end
 
   def sort
-    puts '###################################################'
-    puts params[:scope]
     if params[:scope] == 'closed'
       @jars = @user.jars.closed
     elsif params[:scope] == 'recent'
