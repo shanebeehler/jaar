@@ -85,6 +85,11 @@
     render json: @jars
   end
 
+  def view_shared_jar
+    @jar = jar.find_by(share_token: params[:token])
+
+  end
+
   private
 
   def ensure_user_match

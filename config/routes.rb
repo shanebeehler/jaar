@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
   post 'close_jar/:id' => 'jars#close_jar', :as => :close_jar
   get 'render_form' => 'items#render_form'
+  get 'jars/shared/:token' => 'jars#view_shared_jar'
 
 end
