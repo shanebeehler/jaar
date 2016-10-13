@@ -1,4 +1,5 @@
   class JarsController < ApplicationController
+    skip_before_action :require_login, only: [:view_shared_jar]
   before_action do
     @user = current_user
   end
@@ -86,7 +87,7 @@
   end
 
   def view_shared_jar
-    @jar = jar.find_by(share_token: params[:token])
+    @jar = Jar.find_by(share_token: params[:token])
 
   end
 

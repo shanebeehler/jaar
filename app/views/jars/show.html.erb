@@ -39,7 +39,7 @@
 <% else %>
   <% if @jar.closed %>
      <p>
-       This jar is closed
+       This jar is closed, share it with your friends using this link! <%= shared_path(@jar.share_token) %>
      </p>
   <% else %>
     <ul class="jar-links">
