@@ -298,3 +298,17 @@ h4 a{
   margin: auto;
   margin-bottom: 1rem;
 }
+
+@media (max-width: 320px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 1440px) {
+  .modal-content {
+    padding: 18em 6em;
+  }
+}
