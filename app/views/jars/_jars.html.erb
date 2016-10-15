@@ -1,5 +1,5 @@
 <% @jars.each do |jar| %>
-<div class="jar" id=<%= "jar-#{jar.id}" %>>
+<div class="jar color<%= jar.color %>" id=<%= "jar-#{jar.id}" %>>
   <h3><%= link_to "#{jar.name}", jar_path(jar) %></h3>
 </div>
 <% end %>
