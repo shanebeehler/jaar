@@ -189,7 +189,7 @@ iframe {
   display: block;
   border: none;
   margin: auto;
-  width: 38em;
+  width: 39em;
   height: 21.375em;
 }
 h4 a{
@@ -212,7 +212,7 @@ h4 a{
   color: purple;
   list-style: none;
   display: inline;
-  margin-left: 70px;
+  margin-left: 3rem;
   // text-align: center;
   // padding-left: px;
 }
@@ -307,8 +307,25 @@ h4 a{
 
 }
 
-@media (max-width: 1440px) {
+@media (min-width: 1440px) {
   .modal-content {
     padding: 18em 6em;
+  }
+
+  .modal-content > h1 {
+    font-size: 5rem;
+  }
+
+  .modal-content > h4 {
+    font-size: 2.5rem;
+  }
+
+  .jar-links > li {
+    font-size: 2rem;
+  }
+
+  #random-item > p {
+    font-size: 3rem;
+    text-align: center;
   }
 }
