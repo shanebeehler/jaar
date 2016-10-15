@@ -21,13 +21,13 @@ background-size: cover;
 display: inline-block;
 padding-top: 10px;
 margin-left: 22px;
-margin-top: 15px;
 width: 160px;
 background-size: cover;
 display: inline-block;
-margin-top: 15px;
+margin-top: 18px;
 background-image: image-url('jar_purple.png');
 position: relative;
+top: -7em;
 }
 
 .color1 {
@@ -76,26 +76,16 @@ body{
 }
 
 
-.shelf{
-height: 41%;
-border-radius: 10px;
-border: 1px white solid;
-// display: block;
-background-image: image-url('bookshelf.jpg');
-background-size: cover;
-// font-size:30px;
-color: white;
-// position: relative;
+.shelf {
+  height: 41%;
+  background-image: url(/assets/book_shelf_no_bg-d5daa51fda1f77d63583f27348736a177a45d96cfef23d141726d590e00a6ca2.png);
+  background-size: 133% 175%;
+  background-position: 50% 50%;
 }
 
-// .label{
-//   width: 2em;
-//   float: left;
-//   text-align: right;
-//   // margin-right: 0.5em;
-//   display: block;
-//   padding-bottom: 50px;
-// }
+.shelf:first-child {
+  margin-top: 5em;
+}
 
 
 .modal {
