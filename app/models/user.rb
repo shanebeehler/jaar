@@ -12,6 +12,7 @@ class User < ApplicationRecord
     @jar = Jar.new
     @jar.name = "General"
     @jar.user_id = user.id
+    @jar.color = '1'
     @jar.save
   end
 end
