@@ -75,24 +75,21 @@ color: white;
 overflow: scroll;
 }
 
+#new-jar.modal-content {
+  background-image: image-url('mason-jar-white.png');
+}
+
 .modal-content {
  position: relative;
-padding: 6em;
-// padding-top: 350px;
+ padding: 6em;
  width: 70%;
  height: 100%;
-margin: auto;
- // top: -10px;
-
- background-size: contain;
+ margin: auto;
  overflow:  scroll;
-background-repeat: no-repeat;
-
  background-image: image-url('purple_jar_nolabel.png');
  background-position:30% 45%;
  background-size: 96%;
  background-repeat: no-repeat;
-
 }
 
 .jar > h3 > a {
@@ -243,9 +240,6 @@ h4 a{
   margin-bottom: 2rem;
 }
 
-#new_jar {
-  margin-top: 1rem;
-}
 
 #new-mem-title {
   margin-top: 4%;

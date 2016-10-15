@@ -3,8 +3,10 @@ ul.thumbnails.image_picker_selector {
   list-style-image: none;
   list-style-position: outside;
   list-style-type: none;
-  padding: 0px;
-  margin: 0px; }
+  padding: 2px;
+  margin: 0px;
+  margin-left: 4%;}
+
   ul.thumbnails.image_picker_selector ul {
     overflow: auto;
     list-style-image: none;

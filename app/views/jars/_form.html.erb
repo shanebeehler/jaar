@@ -4,7 +4,13 @@
   </div>
   <div class="field">
     <%= f.label :color %>
-    <%= f.select :color, "<option data-img-src='#{image_path("mason-jar-mint.png")}', value='1'>mint</option><option data-img-src='#{image_path("mason-jar-mint.png")}', value='2'>hot_pink</option>".html_safe %>
+    <%= f.select :color, "<option data-img-src='#{image_path("mason-jar-purple.png")}', value='1'>purple</option>
+                          <option data-img-src='#{image_path("mason-jar-mint.png")}',value='2'>mint</option>
+                          <option data-img-src='#{image_path("mason jar hot pink.png")}', value='3'>hot_pink</option>
+                          <option data-img-src='#{image_path("mason jar blue.png")}', value='4'>blue</option>
+                          <option data-img-src='#{image_path("mason jar red.png")}', value='5'>red</option>
+                          <option data-img-src='#{image_path("mason jar orange.png")}', value='6'>orange</option>
+                          <option data-img-src='#{image_path("mason jar green.png")}', value='7'>green</option>".html_safe %>
 
   </div>
   <div class="field">

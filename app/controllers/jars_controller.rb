@@ -100,7 +100,7 @@
   end
 
   def jar_params
-    params.require(:jar).permit(:name)
+    params.require(:jar).permit(:name, :color)
   end
 
   def get_random_item(jar)
