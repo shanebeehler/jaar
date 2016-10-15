@@ -78,7 +78,7 @@ $(function () {
     });
 
     $('.jar h3').textfill({
-          explicitWidth: 70, innerTag: 'a', maxFontPixels: 15,
+          explicitWidth: 100, innerTag: 'a', maxFontPixels: 30,
     });
 
     // Renders modal

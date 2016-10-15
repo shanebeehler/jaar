@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'conformity';
+  src: url('/assets/conformity.TTF');
+}
+
 h1{
 color: white;
 text-align: center;
@@ -123,15 +128,19 @@ overflow: scroll;
 .jar > h3 > a {
   color: black;
   text-decoration: none;
-  font-size: 25px;
+  // font-size: 25px;
+  font-family: 'conformity';
 // position: absolute;
 // left: -25%;
 
 }
 
 .jar > h3 {
-text-align: center;
-  line-height: 7.55rem;
+  margin: 4rem 1.5rem;
+  text-align: center;
+  line-height: 2rem;
+  background: white;
+  border-radius: 10px;
 
 
 }
