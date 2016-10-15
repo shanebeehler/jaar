@@ -1,3 +1,4 @@
+
 $(function () {
 
   function upload() {
@@ -172,7 +173,7 @@ $(function () {
     $('#new-jar-modal').fadeIn();
   });
 
-
+  $('#new-jar-modal select').imagepicker();
 
   $('#new-jar-modal').on('click', function() {
     $('#new-jar-modal').fadeOut();

@@ -3,6 +3,11 @@
     <%= f.text_field :name, placeholder: "What Will You Name It..." %>
   </div>
   <div class="field">
+    <%= f.label :color %>
+    <%= f.select :color, "<option data-img-src='#{image_path("mason-jar-mint.png")}', value='1'>Mint</option>".html_safe %>
+
+  </div>
+  <div class="field">
     <%= f.submit id: 'update-jar' %>
   </div>
 <% end %>

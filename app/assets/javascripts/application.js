@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.textfill.min
+//= require image-picker.min.js
 //= require foundation
 //= require jquery-fileupload/basic
 //= require textfill.js
