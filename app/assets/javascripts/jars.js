@@ -83,6 +83,9 @@ $(function () {
 
     // Renders modal
     $('.jar').on('click', function(event) {
+      $('#jar-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7')
+      $('#jar-modal > .modal-content').addClass($(this).attr('class'));
+      $('#jar-modal > .modal-content').removeClass('jar');
       $.ajax({
         url: $(this).find('a').attr('href'),
         method: 'GET',
