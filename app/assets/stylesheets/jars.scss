@@ -149,7 +149,6 @@ color: pink;
   padding: 10px;
 
 }
-
 .media {
   width: 90%;
   margin-left: 30px;
@@ -296,6 +295,7 @@ h4 a{
   margin: auto;
   margin-bottom: 1rem;
 }
+
  .image_picker_image {
    height: 100px;
    border: 0;
@@ -306,3 +306,18 @@ h4 a{
    box-shadow: none;
    border-radius: 26px;
  }
+
+.shared-jar {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  background-image: image-url('purple_jar_nolabel.png');
+  background-position:30% 45%;
+  background-size: 96%;
+  background-repeat: no-repeat;
+  padding-top: 10em;
+
+  p {
+    text-align: center;
+  }
+}

@@ -1,4 +1,5 @@
-class JarsController < ApplicationController
+  class JarsController < ApplicationController
+    skip_before_action :require_login, only: [:view_shared_jar]
   before_action do
     @user = current_user
   end
@@ -68,6 +69,7 @@ class JarsController < ApplicationController
   def close_jar
     @jar = Jar.find(params[:id])
     @jar.closed = true
+    @jar.share_token = SecureRandom.hex
     if @jar.save
       redirect_to jars_path, notice: "Jar has been closed!"
     else
@@ -76,14 +78,17 @@ class JarsController < ApplicationController
   end
 
   def sort
-    puts '###################################################'
-    puts params[:scope]
     if params[:scope] == 'closed'
       @jars = @user.jars.closed
     elsif params[:scope] == 'recent'
       @jars = @user.jars.newest_first
     end
     render json: @jars
+  end
+
+  def view_shared_jar
+    @jar = Jar.find_by(share_token: params[:token])
+    @media = get_random_item(@jar)
   end
 
   private

@@ -1,4 +1,3 @@
-
 $(function () {
 
   function upload() {
@@ -98,7 +97,7 @@ $(function () {
         $('#refresh').on('click', function(event){
           event.preventDefault()
           $.ajax({
-            url: $(this).attr('href'),
+            url: $('#refresh').attr('href'),
             method: 'GET',
             data: {},
             dataType: 'json'
