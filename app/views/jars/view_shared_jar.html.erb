@@ -1,0 +1,25 @@
+<div class="shared-jar color<%= @jar.color %>">
+
+
+<h1><%= @jar.name %></h1>
+
+<div class="media">
+
+  <% case @media[0]%>
+    <% when 1 %>
+      <p><%= @media[1] %></p>
+    <% when 2 %>
+      <%= image_tag @media[1] %>
+      <p><%= @media[2] %></p>
+    <% when 3 %>
+      <%= video_tag @media[1], controls: true %>
+      <p><%= @media[2] %></p>
+      <% when 4 %>
+       <iframe id="player" type="text/html" width="640" height="390"
+         src="<%= @media[1].sub! 'watch?v=', 'embed/' %>" frameborder="0"></iframe>
+      <% when 5 %>
+       <iframe src="https://embed.<%= @media[1].sub! 'https://play.', '' %>" frameborder="0" allowtransparency="true"></iframe>
+  <% end %>
+</div>
+
+</div>

@@ -78,11 +78,17 @@ $(function () {
     });
 
     $('.jar h3').textfill({
-          explicitWidth: 70, innerTag: 'a', maxFontPixels: 15,
+          explicitWidth: 100, innerTag: 'a', maxFontPixels: 30,
     });
 
     // Renders modal
     $('.jar').on('click', function(event) {
+      $('#jar-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7')
+      $('#jar-modal > .modal-content').addClass($(this).attr('class'));
+      $('#jar-modal > .modal-content').removeClass('jar');
+      $('#new-item-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7')
+      $('#new-item-modal > .modal-content').addClass($(this).attr('class'));
+      $('#new-item-modal > .modal-content').removeClass('jar');
       $.ajax({
         url: $(this).find('a').attr('href'),
         method: 'GET',
@@ -97,7 +103,7 @@ $(function () {
         $('#refresh').on('click', function(event){
           event.preventDefault()
           $.ajax({
-            url: $(this).attr('href'),
+            url: $('#refresh').attr('href'),
             method: 'GET',
             data: {},
             dataType: 'json'
@@ -172,7 +178,7 @@ $(function () {
     $('#new-jar-modal').fadeIn();
   });
 
-
+  $('#new-jar-modal select').imagepicker();
 
   $('#new-jar-modal').on('click', function() {
     $('#new-jar-modal').fadeOut();
