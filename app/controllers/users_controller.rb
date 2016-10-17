@@ -26,7 +26,9 @@ class UsersController < ApplicationController
       @user.generate_general_jar(@user)
       redirect_to :root
     else
-      render :new
+      flash.now[:alert] = 'Signup Failed'
+      render 'pages/landing.html.erb'
+
     end
   end
 

@@ -29,15 +29,15 @@ padding-left: 10px;
   width: 75%;
 }
 
-h1.intro-head{
+.intro-head{
   margin: auto;
-  color: white;
+  color: black;
   font-size: 5rem;
 }
 .intro-sub-head{
   text-align: center;
   font-size: 1.25rem;
-  color: white;
+  color: black;
   font-style: italic;
 }
 
@@ -46,7 +46,7 @@ h1.intro-head{
 }
 .intro-description{
   font-size: 1.5rem ;
-  color: white;
+  color: black;
 }
 
 .sign-in-form > label {
@@ -55,7 +55,7 @@ h1.intro-head{
 
 .form-page > label,
 .form-page-option > label {
-  color: #2199e8;
+  color: black;
 }
 
 .new_user {

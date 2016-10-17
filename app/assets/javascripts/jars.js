@@ -27,7 +27,7 @@ $(function () {
       $('#random-item').html($('<p>').append(returnData[1]));
     } else if (returnData[0] === 2) {
       $('#random-item').html($('<img>').attr('src', returnData[1]));
-      $('#random-item').append($('<p>').html(returnData[2]));
+      $('#random-item').append($('<h6>').html(returnData[2]));
     } else if (returnData[0] === 3) {
       $('#random-item').html($('<video>').attr('src', returnData[1]).attr('controls', true));
       $('#random-item').append($('<p>').html(returnData[2]))
@@ -187,7 +187,16 @@ $(function () {
 
   $('#new-item-modal').on('click', function() {
     $('#new-item-modal').fadeOut();
-  })
+  });
+
+  $('#edit-profile').on('click', function(event) {
+    event.preventDefault();
+    $('#edit-user-modal').fadeIn();
+  });
+
+  $('#edit-user-modal').on('click', function(){
+    $('#edit-user-modal').fadeOut();
+  });
 
 
   listenToJars()
