@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'conformity';
-  src: font-url('/assets/conformity.TTF');
+  src: font-url('conformity.TTF');
 }
 
 h1{
@@ -78,7 +78,7 @@ body{
 
 .shelf {
   height: 41%;
-  background-image: url(/assets/book_shelf_no_bg-d5daa51fda1f77d63583f27348736a177a45d96cfef23d141726d590e00a6ca2.png);
+  background-image: image-url('book_shelf_no_bg.png');
   background-size: 133% 175%;
   background-position: 50% 50%;
 }
