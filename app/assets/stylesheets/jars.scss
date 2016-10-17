@@ -62,7 +62,7 @@ top: -7em;
 
 body{
  margin: auto;
- background-color: #7A766E;
+ background-color: #FFFBC6;
 }
 
 .collection{
@@ -168,7 +168,6 @@ color: pink;
   color: black;
   font-size: 25px;
   margin-top: 1rem;
-  background-color: #B390B2;
   margin-right: 15px;
   padding: 10px;
   text-align: center;
@@ -216,7 +215,7 @@ iframe {
   height: 21.375em;
 }
 h4 a{
-  color: purple;
+  color: black;
 }
 
  .random {
@@ -227,12 +226,12 @@ h4 a{
 }
 
 .jar-links a{
-  color: purple;
+  color: black;
 
 }
 
 .jar-links li{
-  color: purple;
+  color: black;
   list-style: none;
   display: inline;
   margin-left: 3rem;
@@ -242,7 +241,7 @@ h4 a{
 
 .jar-links-general li,
 .jar-links-general a {
-  color: purple;
+  color: black;
   list-style: none;
   text-align: center;
 }
@@ -370,7 +369,15 @@ h4 a{
   }
 }
 
+
+
+
 @media (min-width: 2560px) {
+
+  .menu > li > a {
+    padding: 1.7rem 2rem;
+    font-size: 3rem;
+  }
 
   .modal-content > h1 {
     font-size: 7rem;
@@ -399,7 +406,121 @@ h4 a{
     display: block;
     text-align: center;
   }
+
+
+  button {
+    font-size: 2rem;
+  }
+
+  .form-selector {
+    margin-left: 2rem;
+  }
+
+  #item_comment {
+    width: 80%;
+    margin: auto;
+  }
+
+  #new-mem-title {
+    margin-top: 0;
+  }
+
+  label {
+    font-size: 3rem;
+    text-align: center;
+    color: black;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    font-size: 3rem;
+    width: 41%;
+  }
+
+  #jar_name {
+    width: 80%;
+  }
+
+  #update-jar {
+    margin: auto;
+  }
+
+  .menu-text {
+    font-size: 3rem;
+  }
+
+  .field {
+    text-align: center;
+  }
+
+  .row {
+    max-width: 91%;
+    margin-top: 8rem;
+  }
+
+  //New Jar modal
+
+  #new-jar-name-label > input {
+    height: 4.4375rem;
+    font-size: 2rem;
+  }
+
+  //Login Page
+
+  h1.intro-head {
+    font-size: 10rem;
+  }
+
+  h5.intro-sub-head {
+    font-size: 2.25rem;
+  }
+
+  p.intro-description {
+    font-size: 3rem;
+    width: 90%;
+  }
+
+
+  #new_user > div > input {
+    height: 3.4375rem;
+    width: 100%;
+    color: black;
+  }
+
+  .sign-in-field > label {
+      font-size: 3rem;
+      text-align: center;
+      color: black;
+      margin-bottom: 1rem;
+    }
+
+    //Nav Bar
+    .top-bar > .top-bar-left {
+      width: 61%;
+    }
+
+    #email,
+    #password {
+      height: 4.4375rem;
+      font-size: 2rem;
+      width: 23rem;
+      max-width: 100%;
+      margin-right: 0;
+    }
+
+    #remember {
+      width: 2rem;
+    }
+
+    .form-page-button > input {
+      width: 10rem;
+    }
+
 }
+
+
+
+
 
  .image_picker_image {
    height: 100px;
@@ -421,7 +542,8 @@ h4 a{
   background-size: 96%;
   background-repeat: no-repeat;
   padding-top: 10em;
+}
 
-  p {
+p {
     text-align: center;
   }
