@@ -186,7 +186,16 @@ $(function () {
 
   $('#new-item-modal').on('click', function() {
     $('#new-item-modal').fadeOut();
-  })
+  });
+
+  $('#edit-profile').on('click', function(event) {
+    event.preventDefault();
+    $('#edit-user-modal').fadeIn();
+  });
+
+  $('#edit-user-modal').on('click', function(){
+    $('#edit-user-modal').fadeOut();
+  });
 
 
   listenToJars()
