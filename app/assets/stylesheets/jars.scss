@@ -143,11 +143,11 @@ color: pink;
 #random-item > p {
   color: black;
   font-size: 25px;
-  margin-top: 30px;
+  margin-top: 1rem;
   background-color: #B390B2;
   margin-right: 15px;
   padding: 10px;
-
+  text-align: center;
 }
 
 .media {
@@ -198,7 +198,7 @@ h4 a{
 
  .random {
   // overflow: scroll;
-  margin-top: 60px;
+  margin-top: 1.5rem;
   text-align: center;
 
 }
@@ -299,12 +299,28 @@ h4 a{
   margin-bottom: 1rem;
 }
 
+.button_to {
+  display: inline;
+  margin-left: 32%;
+}
+
 @media (max-width: 320px) {
 
 }
 
 @media (max-width: 768px) {
+  .modal-content > h1 {
+    margin-top: 2rem;
+  }
 
+  .jar-links > li {
+    margin-left: 0.5rem;
+  }
+
+  ul {
+    margin: 0;
+
+  }
 }
 
 @media (min-width: 1440px) {
@@ -326,6 +342,43 @@ h4 a{
 
   #random-item > p {
     font-size: 3rem;
+  }
+
+  .button_to {
+    display: inline;
+    margin-left: 32%;
+  }
+}
+
+@media (min-width: 2560px) {
+
+  .modal-content > h1 {
+    font-size: 7rem;
+  }
+
+  .modal-content > h4 {
+    font-size: 3.5rem;
+  }
+
+  iframe {
+    width: 56rem;
+    height: 38.375rem;
+  }
+
+  .jar-links > li {
+    font-size: 3rem;
+    margin-left: 12rem;
+  }
+
+  #random-item > p {
+    font-size: 5rem;
+  }
+
+  #random-item > h6 {
+    font-size: 2.5rem;
+    display: block;
     text-align: center;
   }
+
+
 }
