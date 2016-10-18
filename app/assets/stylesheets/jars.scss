@@ -339,7 +339,11 @@ label {
   border-radius: 2rem;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 440px) {
+ .modal-content {
+   padding: 3rem;
+ }
+
 
 }
 
@@ -482,6 +486,11 @@ label {
   .row {
     max-width: 91%;
     margin-top: 8rem;
+  }
+
+  #fileupload {
+    width: 43%;
+    padding: 2rem;
   }
 
   //New Jar modal
