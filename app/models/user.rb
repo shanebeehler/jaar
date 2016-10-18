@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def generate_general_jar(user)
     @jar = Jar.new
-    @jar.name = "General"
+    @jar.name = "My First Jaar"
     @jar.user_id = user.id
     @jar.color = '1'
     @jar.save
