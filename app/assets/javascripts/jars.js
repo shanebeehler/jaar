@@ -230,7 +230,8 @@ $(function () {
   function replace_jars(newJars){
     $('.jar').remove();
     newJars.forEach(function(jar){
-      $('#shelf-1').append($('<div class="jar">').append($('<h3>').append($('<a href=/jars/' + jar.id + '>').html(jar.name))));
+      $('#shelf-1').append($('<div class="jar color' + jar.color +'" id="jar-'+ jar.id + '">').append($('<h3>').append($('<a href=/jars/' + jar.id + '>').html(jar.name))));
+
     });
   };
 
