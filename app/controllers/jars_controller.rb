@@ -35,7 +35,7 @@
     if @jar.save
       redirect_to jars_path
     else
-      render new_jar_path
+        redirect_to jars_path, alert: 'Jars need a name!'
     end
   end
 
