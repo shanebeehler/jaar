@@ -83,10 +83,10 @@ $(function () {
 
     // Renders modal
     $('.jar').on('click', function(event) {
-      $('#jar-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7')
+      $('#jar-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7');
       $('#jar-modal > .modal-content').addClass($(this).attr('class'));
       $('#jar-modal > .modal-content').removeClass('jar');
-      $('#new-item-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7')
+      $('#new-item-modal > .modal-content').removeClass('color1 color2 color3 color4 color5 color6 color7');
       $('#new-item-modal > .modal-content').addClass($(this).attr('class'));
       $('#new-item-modal > .modal-content').removeClass('jar');
       $.ajax({
@@ -108,7 +108,7 @@ $(function () {
             data: {},
             dataType: 'json'
           }).done(function(returnData){
-            renderMemory(returnData)
+            renderMemory(returnData);
           });
         });
 
@@ -152,6 +152,7 @@ $(function () {
             dataType: 'html'
           }).done(function(returnData){
             $('#jar-modal > .modal-content').html(returnData);
+            $('select').imagepicker()
           }).done(function(){
             $('.edit_jar').on('submit', function(event){
               event.preventDefault();
@@ -229,7 +230,8 @@ $(function () {
   function replace_jars(newJars){
     $('.jar').remove();
     newJars.forEach(function(jar){
-      $('#shelf-1').append($('<div class="jar">').append($('<h3>').append($('<a href=/jars/' + jar.id + '>').html(jar.name))));
+      $('#shelf-1').append($('<div class="jar color' + jar.color +'" id="jar-'+ jar.id + '">').append($('<h3>').append($('<a href=/jars/' + jar.id + '>').html(jar.name))));
+
     });
   };
 
